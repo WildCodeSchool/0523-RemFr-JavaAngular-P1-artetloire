@@ -12,8 +12,8 @@ import { DemoPageComponent } from './pages/demo/demo.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { DemoPipe } from './pipes/demo.pipe';
 import { DemoDirective } from './directives/demo.directive';
-import { CarteComponent } from './pages/carte/carte.component';
-import { ModalCarteComponent } from './components/modal-carte/modal-carte.component';
+import { MapComponent } from './pages/map/map.component';
+import { ModalMapComponent } from './components/modal-map/modal-map.component';
 
 
 @NgModule({
@@ -23,8 +23,8 @@ import { ModalCarteComponent } from './components/modal-carte/modal-carte.compon
     DemoComponent,
     DemoPipe,
     DemoDirective,
-    CarteComponent,
-    ModalCarteComponent
+    MapComponent,
+    ModalMapComponent
   ],
   imports: [
     BrowserModule,

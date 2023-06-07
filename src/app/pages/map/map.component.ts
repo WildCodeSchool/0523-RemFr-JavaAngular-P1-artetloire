@@ -19,11 +19,11 @@ const iconDefault = L.icon({
 L.Marker.prototype.options.icon = iconDefault;
 
 @Component({
-  selector: 'app-carte',
-  templateUrl: './carte.component.html',
-  styleUrls: ['./carte.component.scss']
+  selector: 'app-map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss']
 })
-export class CarteComponent implements AfterViewInit, OnInit {
+export class MapComponent implements AfterViewInit, OnInit {
   private map!: L.Map;
   private userLocation!: L.LatLng;
 
