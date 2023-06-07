@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-carte',
-  templateUrl: './modal-carte.component.html',
-  styleUrls: ['./modal-carte.component.scss']
+  selector: 'app-modal-map',
+  templateUrl: './modal-map.component.html',
+  styleUrls: ['./modal-map.component.scss']
 })
-export class ModalCarteComponent {
+export class ModalMapComponent {
   @Output() closeModal = new EventEmitter();
 
   close(): void {
