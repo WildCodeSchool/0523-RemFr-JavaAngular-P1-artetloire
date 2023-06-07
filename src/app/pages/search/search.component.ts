@@ -15,11 +15,11 @@ export class searchComponent implements OnInit {
   museumName = "";
   museumLabelHandi = "";
   museumLabel = "";
-  themeOptions!: any[];
+  themeOptions!: string[];
   filteredMuseums: Museums[] = [];
-  labelMuseums: any[] = [];
-  HandiLabelMuseums: any[] = [];
-  themeMuseums: any[] = [];
+  labelMuseums: Museums[] = [];
+  HandiLabelMuseums: Museums[] = [];
+  themeMuseums: Museums[] = [];
 
   constructor(private searchService: searchService) {}
 
@@ -34,9 +34,11 @@ export class searchComponent implements OnInit {
         this.museumData = data.records;
         this.themeOptions = [
           ...new Set(
-            this.museumData.map((museum: any) => museum.fields.theme_musee)
+            this.museumData
+              .map((museum: Fields) => museum.fields.theme_musee)
+              .filter((theme: string) => theme !== "")
           ),
-        ];
+        ].sort();
       },
       (error) => {
         console.error(error);
@@ -44,12 +46,12 @@ export class searchComponent implements OnInit {
     );
   }
 
-  getMuseumByTheme(newList: any): any[] {
-    const filteredMuseum: any[] = [];
+  getMuseumByTheme(newList: string): Museums[] {
+    const filteredMuseum: Museums[] = [];
 
     this.museumData.forEach((museumData) => {
       if (museumData.fields.theme_musee === newList) {
-        filteredMuseum.push(museumData);
+        filteredMuseum.push(museumData.fields);
       }
       console.log("Liste", newList);
     });
@@ -72,13 +74,13 @@ export class searchComponent implements OnInit {
     console.log("Musées filtrés", this.filteredMuseums);
   }
 
-  getMuseumByLabelHandi(labelHandi: any): any[] {
-    const filteredMuseumLabelHandi: any[] = [];
+  getMuseumByLabelHandi(labelHandi: string): Museums[] {
+    const filteredMuseumLabelHandi: Museums[] = [];
 
     this.museumData.forEach((museumData) => {
       const handiLabel = museumData.fields.label_tourisme_handicap;
       if (handiLabel === labelHandi) {
-        filteredMuseumLabelHandi.push(museumData);
+        filteredMuseumLabelHandi.push(museumData.fields);
       }
       console.log("Label", labelHandi);
     });
@@ -90,11 +92,11 @@ export class searchComponent implements OnInit {
     this.HandiLabelMuseums = this.getMuseumByLabelHandi(this.museumLabelHandi);
   }
 
-  getMuseumByLabel(label: any): any[] {
-    const filteredMuseumLabel: any[] = [];
+  getMuseumByLabel(label: string): Museums[] {
+    const filteredMuseumLabel: Museums[] = [];
     this.museumData.forEach((museumData) => {
       if (museumData.fields.labels === label) {
-        filteredMuseumLabel.push(museumData);
+        filteredMuseumLabel.push(museumData.fields);
       }
       console.log("Label", label);
     });
