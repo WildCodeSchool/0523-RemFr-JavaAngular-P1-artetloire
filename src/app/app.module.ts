@@ -13,6 +13,7 @@ import { DemoComponent } from './components/demo/demo.component';
 import { DemoPipe } from './pipes/demo.pipe';
 import { DemoDirective } from './directives/demo.directive';
 import { CarteComponent } from './pages/carte/carte.component';
+import { ModalCarteComponent } from './components/modal-carte/modal-carte.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CarteComponent } from './pages/carte/carte.component';
     DemoComponent,
     DemoPipe,
     DemoDirective,
-    CarteComponent
+    CarteComponent,
+    ModalCarteComponent
   ],
   imports: [
     BrowserModule,

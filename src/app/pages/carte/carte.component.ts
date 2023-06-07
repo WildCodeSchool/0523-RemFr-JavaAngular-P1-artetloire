@@ -42,7 +42,9 @@ export class CarteComponent implements AfterViewInit, OnInit {
     tiles.addTo(this.map);
   }
 
-  constructor(private markerService: MarkerService) { }
+  showModal = false;
+
+  constructor(public markerService: MarkerService) { }
 
   ngOnInit(): void {
     this.getLocation().subscribe(pos => {
@@ -70,5 +72,9 @@ export class CarteComponent implements AfterViewInit, OnInit {
     if (navigator.geolocation && this.userLocation) {
       this.map.panTo(this.userLocation);
     }
+  }
+
+  closeModal():void {
+    this.markerService.showModal = false;
   }
 }

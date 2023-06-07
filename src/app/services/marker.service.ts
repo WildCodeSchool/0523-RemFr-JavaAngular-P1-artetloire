@@ -6,6 +6,7 @@ import * as L from 'leaflet';
   providedIn: 'root'
 })
 export class MarkerService {
+  showModal = false;
   
   constructor(private http: HttpClient) { }
   
@@ -22,10 +23,10 @@ export class MarkerService {
         const lat = position[0];
         const lon = position[1];
         const marker = L.marker([lat, lon]);
-        marker.addEventListener("click", function() {
-          alert('Bonjour');
-        })
         marker.addTo(map);
+        marker.on("click",  () => {
+          this.showModal = true;
+        })
       }
       console.log(positions);
     });
