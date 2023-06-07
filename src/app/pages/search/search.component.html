@@ -36,8 +36,8 @@
         <h2 class="name-search-title">Recherche de musées par nom</h2>
 
         <label for="theme"></label>
-        <input type="text" id="theme" [(ngModel)]="museumName">
-        <button (click)="getMuseumByName()">Rechercher</button>
+        <input type="text" id="theme" placeholder="Rechercher" [(ngModel)]="museumName">
+        <button (click)="getMuseumByName()"><img src="assets/recherche.png" alt="Loupe"></button>
     </div>
     <div class="result-card">
         <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>
