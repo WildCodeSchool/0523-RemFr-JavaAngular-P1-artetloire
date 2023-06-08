@@ -3,7 +3,7 @@
         <label for="theme"></label>
         <select [(ngModel)]="museeTheme" (change)="onThemeChange()">
             <option value="">Thèmes</option>
-            <option *ngFor="let theme of themeOptions" [value]="theme">
+            <option class="filter-option" *ngFor="let theme of themeOptions" [value]="theme">
                 {{ theme }}
             </option>
         </select>
@@ -20,7 +20,8 @@
         <label for="label"></label>
         <select [(ngModel)]="museumLabel" (change)="onLabelChange()">
             <option value="">Label</option>
-            <option *ngFor="let museum of museumData" [value]="museum.fields.labels">{{ museum.fields.labels }}</option>
+            <option class="filter-option" *ngFor="let museum of museumData" [value]="museum.fields.labels">{{
+                museum.fields.labels }}</option>
         </select>
 
     </div>
