@@ -1,26 +1,19 @@
 main {
-  display: box;
-  // flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  align-content: space-between;
-  // gap: 0.5rem;
+  display: row;
   width: 100vw;
   height: 100vh;
 }
 
 header {
   display: flex;
-  // flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
-  height: 60px;
   background-color: #fcfcfc;
 }
 
 header img {
   max-height: 48px;
+  margin: 0.3rem;
 }
 
 section {
