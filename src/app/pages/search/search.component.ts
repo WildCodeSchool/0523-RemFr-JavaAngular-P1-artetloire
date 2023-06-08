@@ -53,7 +53,6 @@ export class searchComponent implements OnInit {
       if (museumData.fields.theme_musee === newList) {
         filteredMuseum.push(museumData.fields);
       }
-      console.log("Liste", newList);
     });
 
     return filteredMuseum;
@@ -79,10 +78,9 @@ export class searchComponent implements OnInit {
 
     this.museumData.forEach((museumData) => {
       const handiLabel = museumData.fields.label_tourisme_handicap;
-      if (handiLabel === labelHandi) {
+      if (handiLabel === labelHandi && handiLabel.trim() !== "") {
         filteredMuseumLabelHandi.push(museumData.fields);
       }
-      console.log("Label", labelHandi);
     });
 
     return filteredMuseumLabelHandi;
@@ -94,12 +92,16 @@ export class searchComponent implements OnInit {
 
   getMuseumByLabel(label: string): Museums[] {
     const filteredMuseumLabel: Museums[] = [];
+
     this.museumData.forEach((museumData) => {
-      if (museumData.fields.labels === label) {
+      if (
+        museumData.fields.labels === label &&
+        museumData.fields.labels.trim() !== ""
+      ) {
         filteredMuseumLabel.push(museumData.fields);
       }
-      console.log("Label", label);
     });
+
     return filteredMuseumLabel;
   }
 

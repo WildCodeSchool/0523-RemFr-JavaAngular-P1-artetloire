@@ -11,7 +11,8 @@
         <label for="handicap"></label>
         <select [(ngModel)]="museumLabelHandi" (change)="onLabelHandiChange()">
             <option value="">Handicap</option>
-            <option *ngFor="let museum of museumData" [value]="museum.fields.label_tourisme_handicap">
+            <option class="filter-option" *ngFor="let museum of museumData"
+                [value]="museum.fields.label_tourisme_handicap">
                 {{ museum.fields.label_tourisme_handicap }}
             </option>
         </select>

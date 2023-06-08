@@ -48,3 +48,20 @@
 .museum-site:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .museums-container {
+    width: 90%;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .museum-name {
+    width: 90%;
+    bottom: initial;
+  }
+}
