@@ -18,8 +18,8 @@
   </div>
   <div class="contaienr-barre">
     <div class="barre-recherche">
-      <input type="text" placeholder="Rechercher" />
-      <button>
+      <input type="text" placeholder="Rechercher" [(ngModel)]="inputV" />
+      <button (click)="searchMuseum()">
         <img src="../../../assets/recherche.png" alt="logo_recherche" />
       </button>
     </div>
