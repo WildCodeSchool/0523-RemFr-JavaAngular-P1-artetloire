@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { searchService } from "src/services/search.service";
+import { searchService } from "src/app/services/search.service";
 import { Museums } from "src/app/models/museums";
 import { Api, Fields } from "src/app/models/api";
 
