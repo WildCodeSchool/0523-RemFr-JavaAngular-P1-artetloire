@@ -18,10 +18,10 @@ import { ResultCardComponent } from "./components/result-card/result-card.compon
 @NgModule({
   declarations: [
     AppComponent,
+    searchComponent,
+    ResultCardComponent,
     MapComponent,
     ModalMapComponent,
-    searchComponent,
-    ResultCardComponent
   ],
   imports: [
     BrowserModule,
