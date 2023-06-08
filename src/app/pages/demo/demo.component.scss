@@ -1,7 +1,35 @@
 main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: box;
+  // flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  align-content: space-between;
+  // gap: 0.5rem;
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: #fcfcfc;
+}
+
+header img {
+  max-height: 48px;
+}
+
+section {
+  text-align: justify;
+  height: max-content;
+}
+
+footer {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
 }

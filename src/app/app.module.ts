@@ -9,6 +9,7 @@ import { DemoPageComponent } from './pages/demo/demo.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { DemoPipe } from './pipes/demo.pipe';
 import { DemoDirective } from './directives/demo.directive';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DemoDirective } from './directives/demo.directive';
     DemoPageComponent,
     DemoComponent,
     DemoPipe,
-    DemoDirective
+    DemoDirective,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
