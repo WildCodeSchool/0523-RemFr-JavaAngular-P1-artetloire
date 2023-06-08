@@ -1,4 +1,5 @@
 <div>
+<<<<<<< HEAD
   <div class="filter-container">
     <label for="theme"></label>
     <select [(ngModel)]="museeTheme" (change)="onThemeChange()">
@@ -7,6 +8,16 @@
         {{ theme }}
       </option>
     </select>
+=======
+    <div class="filter-container">
+        <label for="theme"></label>
+        <select [(ngModel)]="museeTheme" (change)="onThemeChange()">
+            <option value="">Thèmes</option>
+            <option class="filter-option" *ngFor="let theme of themeOptions" [value]="theme">
+                {{ theme }}
+            </option>
+        </select>
+>>>>>>> develop
 
     <label for="handicap"></label>
     <select [(ngModel)]="museumLabelHandi" (change)="onLabelHandiChange()">
@@ -20,6 +31,7 @@
       </option>
     </select>
 
+<<<<<<< HEAD
     <label for="label"></label>
     <select [(ngModel)]="museumLabel" (change)="onLabelChange()">
       <option value="">Label</option>
@@ -39,6 +51,14 @@
   </div>
   <div class="name-search">
     <h2 class="name-search-title">Recherche de musées par nom</h2>
+=======
+        <label for="label"></label>
+        <select [(ngModel)]="museumLabel" (change)="onLabelChange()">
+            <option value="">Label</option>
+            <option class="filter-option" *ngFor="let museum of museumData" [value]="museum.fields.labels">{{
+                museum.fields.labels }}</option>
+        </select>
+>>>>>>> develop
 
     <label for="theme"></label>
     <input

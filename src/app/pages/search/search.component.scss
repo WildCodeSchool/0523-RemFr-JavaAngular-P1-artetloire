@@ -16,14 +16,28 @@
 .filter-container label {
   font-size: 1.5rem;
 }
+select,
+option {
+  appearance: none;
+}
 
 .filter-container select {
-  width: 17rem;
+  width: 16rem;
   height: 3rem;
   background: #228b89;
   color: #ffffff;
   padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
 }
+.filter-option {
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 input[type="text"]::placeholder {
   color: #ffffff;
 }
@@ -51,14 +65,14 @@ input[type="text"]::placeholder {
 }
 
 button {
-  background: #228b89;
-  color: #f2f2f2;
-  padding: 0.5rem;
+  background: transparent;
   border-radius: 2rem;
+  border: none;
   margin-top: 2rem;
   position: relative;
-  bottom: 5rem;
+  bottom: 4.5rem;
   left: 19rem;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   #theme {
@@ -86,6 +100,6 @@ button {
 
   button {
     left: 40%;
-    bottom: 5.1rem;
+    bottom: 4.7rem;
   }
 }
