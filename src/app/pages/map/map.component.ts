@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../../services/marker.service';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -44,12 +45,22 @@ export class MapComponent implements AfterViewInit, OnInit {
 
   showModal = false;
 
-  constructor(public markerService: MarkerService) { }
+  museumNameTab!: string[];
+  museumCoordTab!: [number, number][];
+  inputV = "";
+
+  constructor(public markerService: MarkerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getLocation().subscribe(pos => {
       console.log(pos);
     });
+    this.markerService.getMuseumNames().subscribe((names: string[]) => {
+      this.museumNameTab = names;
+    });
+    this.markerService.getMuseumCoords().subscribe((coords: any) => {
+      this.museumCoordTab = coords;
+    })
   }
 
   getLocation(): Observable<L.LatLng> {
@@ -68,13 +79,24 @@ export class MapComponent implements AfterViewInit, OnInit {
     this.markerService.makeCapitalMarkers(this.map);
   }
 
+  closeModal():void {
+    this.markerService.showModal = false;
+  }
+
   centerOnUser(): void {
     if (navigator.geolocation && this.userLocation) {
       this.map.panTo(this.userLocation);
     }
   }
 
-  closeModal():void {
-    this.markerService.showModal = false;
+  searchMuseum(): void {
+    const indexMuseum = this.museumNameTab.indexOf(this.inputV);
+    if (indexMuseum >= 0) {
+      const museumCoords = this.museumCoordTab[indexMuseum];
+      const position = L.latLng(museumCoords[0], museumCoords[1])
+      this.map.panTo(position);
+    } else {
+      this.toastr.error('Pas trouvé', "Non");
+    }
   }
 }

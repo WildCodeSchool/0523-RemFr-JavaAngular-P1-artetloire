@@ -23,6 +23,18 @@
                 {{ label }}
             </option>
         </select>
+    </div>
+    <div class="result-card">
+        <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
+    </div>
+    <div class="result-card">
+        <app-result-card [filteredMuseums]="HandiLabelMuseums"></app-result-card>
+    </div>
+    <div class="result-card">
+        <app-result-card [labelMuseums]="labelMuseums"></app-result-card>
+    </div>
+    <div class="name-search">
+        <h2 class="name-search-title">Recherche de musées par nom</h2>
 
     </div>
     <div class="result-card">
@@ -39,7 +51,7 @@
 
         <label for="theme"></label>
         <input type="text" id="theme" placeholder="Rechercher" [(ngModel)]="museumName">
-        <button (click)="getMuseumByName() ; showSuccess()"><img src="assets/recherche.png" alt="Loupe"></button>
+        <button (click)="getMuseumByName()"><img src="assets/recherche.png" alt="Loupe"></button>
     </div>
     <div class="result-card">
         <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>

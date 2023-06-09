@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,24 @@ export class MarkerService {
           this.showModal = true;
         })
       }
-      console.log(positions);
     });
+  }
+
+  getMuseumNames(): Observable<string[]> {
+    return this.getData().pipe(
+      map((res: any) => {
+        const museumNames = res.records.map((record: any) => record.fields.nom_offre);
+        return museumNames;
+      })
+    );
+  }
+
+  getMuseumCoords(): Observable<string[]> {
+    return this.getData().pipe(
+      map((res: any) => {
+        const museumCoords = res.records.map((record: any) => record.fields.position_geographique);
+        return museumCoords;
+      })
+    );
   }
 }
