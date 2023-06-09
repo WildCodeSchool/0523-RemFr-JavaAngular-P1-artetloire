@@ -15,6 +15,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { ResultCardComponent } from "./components/result-card/result-card.component";
 
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,8 @@ import { ResultCardComponent } from "./components/result-card/result-card.compon
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    CommonModule,
+    ToastrModule.forRoot()
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent],

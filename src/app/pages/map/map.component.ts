@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { MarkerService } from '../../services/marker.service';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -48,7 +49,7 @@ export class MapComponent implements AfterViewInit, OnInit {
   museumCoordTab!: [number, number][];
   inputV = "";
 
-  constructor(public markerService: MarkerService) { }
+  constructor(public markerService: MarkerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getLocation().subscribe(pos => {
@@ -95,7 +96,7 @@ export class MapComponent implements AfterViewInit, OnInit {
       const position = L.latLng(museumCoords[0], museumCoords[1])
       this.map.panTo(position);
     } else {
-      alert("Pas trouvé");
+      this.toastr.error('Pas trouvé', "Non");
     }
   }
 }
