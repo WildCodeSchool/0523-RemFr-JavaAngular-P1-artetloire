@@ -1,0 +1,111 @@
+.container-all {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.div_image_centrer {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 5.5rem;
+}
+
+.div_image {
+    background-color: white;
+    width: 2.10rem;
+    margin-right: 0.60rem;
+    border: 2px solid rgb(194, 194, 194);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.div_image:hover {
+    background-color: #f4f4f4;
+}
+
+.div_image:focus {
+    background-color: #f4f4f4;
+}
+
+.div_image > img {
+    width: 1.5rem;
+    margin: 0.20rem;
+}
+
+.container-barre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15rem;
+}
+
+.barre-recherche {
+    background-color: #228b89;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.barre-recherche > input {
+    margin-left: 0.5rem;
+    width: 100%;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    color: #fcfcfc;
+}
+
+.barre-recherche > input::placeholder {
+    color: #e4e4e4;
+}
+
+.barre-recherche > input:focus {
+    outline: none;
+}
+
+.barre-recherche > button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.barre-recherche > button > img {
+    scale: 0.90;
+}
+
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 9;
+}
+
+.map-frame {
+    height: 72%;
+}
+
+#map {
+    height: 100%;
+}
+
+.musee-container {
+    background-color: white;
+    position: relative;
+    z-index: 10;
+    height: 30%;
+    text-align: center;
+}
