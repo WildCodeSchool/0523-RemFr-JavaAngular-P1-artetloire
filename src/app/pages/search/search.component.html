@@ -39,7 +39,7 @@
 
         <label for="theme"></label>
         <input type="text" id="theme" placeholder="Rechercher" [(ngModel)]="museumName">
-        <button (click)="getMuseumByName()"><img src="assets/recherche.png" alt="Loupe"></button>
+        <button (click)="getMuseumByName() ; showSuccess()"><img src="assets/recherche.png" alt="Loupe"></button>
     </div>
     <div class="result-card">
         <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>

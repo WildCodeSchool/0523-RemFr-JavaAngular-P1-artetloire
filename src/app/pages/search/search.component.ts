@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { searchService } from "src/app/services/search.service";
 import { Museums } from "src/app/models/museums";
 import { Api, Fields } from "src/app/models/api";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-search",
@@ -23,7 +24,10 @@ export class searchComponent implements OnInit {
   HandiLabelMuseums: Museums[] = [];
   themeMuseums: Museums[] = [];
 
-  constructor(private searchService: searchService) {}
+  constructor(
+    private searchService: searchService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.getMuseumData();
@@ -118,10 +122,14 @@ export class searchComponent implements OnInit {
         filteredMuseumLabelHandi.push(museumData.fields);
       }
     });
+    alert("Hello");
 
     return filteredMuseumLabelHandi;
   }
 
+  showSuccess() {
+    this.toastr.success("Hello world!", "Toastr fun!");
+  }
   onLabelHandiChange() {
     this.HandiLabelMuseums = this.getMuseumByLabelHandi(this.museumLabelHandi);
   }

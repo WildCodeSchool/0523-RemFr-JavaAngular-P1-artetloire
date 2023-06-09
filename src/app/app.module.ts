@@ -14,6 +14,7 @@ import { searchComponent } from "./pages/search/search.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { ResultCardComponent } from "./components/result-card/result-card.component";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ResultCardComponent } from "./components/result-card/result-card.compon
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent],
