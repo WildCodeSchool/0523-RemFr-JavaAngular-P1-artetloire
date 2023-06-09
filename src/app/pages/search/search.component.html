@@ -1,47 +1,69 @@
 <div>
-    <div class="filter-container">
-        <label for="theme"></label>
-        <select class="option" [(ngModel)]="museeTheme" (change)="onThemeChange()">
-            <option value="">Thèmes</option>
-            <option class="filter-option" *ngFor="let theme of themeOptions" [value]="theme">
-                {{ theme }}
-            </option>
-        </select>
+  <div class="filter-container">
+    <label for="theme"></label>
+    <select class="option" [(ngModel)]="museeTheme" (change)="onThemeChange()">
+      <option value="">Thèmes</option>
+      <option
+        class="filter-option"
+        *ngFor="let theme of themeOptions"
+        [value]="theme"
+      >
+        {{ theme }}
+      </option>
+    </select>
 
-        <label for="handicap"></label>
-        <select class="option" [(ngModel)]="museumLabelHandi" (change)="onLabelHandiChange()">
-            <option value="">Handicap</option>
-            <option class="filter-option" *ngFor="let labelHandic of labelHandiOptions" [value]="labelHandic">
-                {{ labelHandic }}
-            </option>
-        </select>
+    <label for="handicap"></label>
+    <select
+      class="option"
+      [(ngModel)]="museumLabelHandi"
+      (change)="onLabelHandiChange()"
+    >
+      <option value="">Handicap</option>
+      <option
+        class="filter-option"
+        *ngFor="let labelHandic of labelHandiOptions"
+        [value]="labelHandic"
+      >
+        {{ labelHandic }}
+      </option>
+    </select>
 
-        <label for="label"></label>
-        <select class="option" [(ngModel)]="museumLabel" (change)="onLabelChange()">
-            <option value="">Label</option>
-            <option class="filter-option" *ngFor="let label of labelOptions" [value]="label">
-                {{ label }}
-            </option>
-        </select>
+    <label for="label"></label>
+    <select class="option" [(ngModel)]="museumLabel" (change)="onLabelChange()">
+      <option value="">Label</option>
+      <option
+        class="filter-option"
+        *ngFor="let label of labelOptions"
+        [value]="label"
+      >
+        {{ label }}
+      </option>
+    </select>
+  </div>
+  <div class="result-card">
+    <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
+  </div>
+  <div class="result-card">
+    <app-result-card [filteredMuseums]="HandiLabelMuseums"></app-result-card>
+  </div>
+  <div class="result-card">
+    <app-result-card [labelMuseums]="labelMuseums"></app-result-card>
+  </div>
+  <div class="name-search">
+    <h2 class="name-search-title">Recherche de musées par nom</h2>
 
-    </div>
-    <div class="result-card">
-        <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
-    </div>
-    <div class="result-card">
-        <app-result-card [filteredMuseums]="HandiLabelMuseums"></app-result-card>
-    </div>
-    <div class="result-card">
-        <app-result-card [labelMuseums]="labelMuseums"></app-result-card>
-    </div>
-    <div class="name-search">
-        <h2 class="name-search-title">Recherche de musées par nom</h2>
-
-        <label for="theme"></label>
-        <input type="text" id="theme" placeholder="Rechercher" [(ngModel)]="museumName">
-        <button (click)="getMuseumByName()"><img src="assets/recherche.png" alt="Loupe"></button>
-    </div>
-    <div class="result-card">
-        <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>
-    </div>
+    <label for="theme"></label>
+    <input
+      type="text"
+      id="theme"
+      placeholder="Rechercher"
+      [(ngModel)]="museumName"
+    />
+    <button (click)="getMuseumByName()">
+      <img src="assets/recherche.png" alt="Loupe" />
+    </button>
+  </div>
+  <div class="result-card">
+    <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>
+  </div>
 </div>
