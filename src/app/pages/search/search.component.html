@@ -9,7 +9,7 @@
         </select>
 
         <label for="handicap"></label>
-        <select class="option custom-select" [(ngModel)]="museumLabelHandi" (change)="onLabelHandiChange()">
+        <select class="option" [(ngModel)]="museumLabelHandi" (change)="onLabelHandiChange()">
             <option value="">Handicap</option>
             <option class="filter-option" *ngFor="let labelHandic of labelHandiOptions" [value]="labelHandic">
                 {{ labelHandic }}
