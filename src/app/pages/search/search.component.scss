@@ -1,5 +1,8 @@
+* {
+  box-sizing: 0;
+}
 #theme {
-  width: 49rem;
+  width: 45rem;
   height: 2.5rem;
   color: #f2f2f2;
   background: #228b89;
@@ -7,6 +10,7 @@
   padding-left: 2rem;
   font-size: 1.5rem;
 }
+
 .filter-container {
   display: flex;
   align-items: center;
@@ -16,6 +20,7 @@
 .filter-container label {
   font-size: 1.5rem;
 }
+
 select,
 option {
   appearance: none;
@@ -32,33 +37,41 @@ option {
   text-align: center;
   cursor: pointer;
 }
+
 .filter-option {
   text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  width: 10rem;
+  max-width: 20ch;
 }
 
 input[type="text"]::placeholder {
   color: #ffffff;
 }
+
 .filter-container select:first-of-type {
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
 }
+
 .filter-container select:last-child {
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
 }
+
 .name-search-title {
   display: flex;
   justify-content: center;
 }
+
 .name-search {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .result-card {
   display: flex;
   justify-content: center;
@@ -74,6 +87,15 @@ button {
   left: 19rem;
   cursor: pointer;
 }
+
+button:active {
+  transform: scale(1.3);
+}
+
+.custom-select {
+  width: 200px;
+}
+
 @media (max-width: 768px) {
   #theme {
     width: 90%;
