@@ -1,5 +1,6 @@
 export class Museums {
   constructor(
+    public id: string,
     public nom_offre: string,
     public duree_visite_individuel_en_h: string,
     public equipements: string,
@@ -14,7 +15,7 @@ export class Museums {
     public visite_guidee_sur_demande_groupe: string,
     public groupements: string,
     public duree_visite_groupe_en_h: number,
-    public position_geographique: [],
+    public position_geographique: number[],
     public acces_handicap: boolean,
     public animaux_acceptes: string,
     public site_web: string,
