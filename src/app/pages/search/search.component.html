@@ -1,7 +1,7 @@
 <div>
     <div class="filter-container">
         <label for="theme"></label>
-        <select class="option" [(ngModel)]="museeTheme" (change)="onThemeChange()">
+        <select class="option" [(ngModel)]="museumTheme" (change)="onThemeChange()">
             <option value="">Thèmes</option>
             <option class="filter-option" *ngFor="let theme of themeOptions" [value]="theme">
                 {{ theme }}
@@ -24,29 +24,23 @@
             </option>
         </select>
     </div>
-    <div class="result-card">
-        <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
+    <div class="Result">
+        <div class="result-card">
+            <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
+        </div>
+        <div class="result-card">
+            <app-result-card [filteredMuseums]="HandiLabelMuseums"></app-result-card>
+        </div>
+        <div class="result-card">
+            <app-result-card [labelMuseums]="labelMuseums"></app-result-card>
+        </div>
     </div>
-    <div class="result-card">
-        <app-result-card [filteredMuseums]="HandiLabelMuseums"></app-result-card>
-    </div>
-    <div class="result-card">
-        <app-result-card [labelMuseums]="labelMuseums"></app-result-card>
+    <div class="button-see-more">
+        <button (click)="seeMore()" *ngIf="showSeeMore">Voir plus</button>
     </div>
     <div class="name-search">
-        <h2 class="name-search-title">Recherche de musées par nom</h2>
 
-    </div>
-    <div class="result-card">
-        <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
-    </div>
-    <div class="result-card">
-        <app-result-card [filteredMuseums]="HandiLabelMuseums"></app-result-card>
-    </div>
-    <div class="result-card">
-        <app-result-card [labelMuseums]="labelMuseums"></app-result-card>
-    </div>
-    <div class="name-search">
+
         <h2 class="name-search-title">Recherche de musées par nom</h2>
 
         <label for="theme"></label>
@@ -56,4 +50,5 @@
     <div class="result-card">
         <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>
     </div>
+
 </div>

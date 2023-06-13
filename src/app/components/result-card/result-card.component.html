@@ -4,7 +4,9 @@
             <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
             <p class="museum-city">{{museum?.commune}}</p>
-            <a class="museum-site" [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
+            <div class="museum-site">
+                <a [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
+            </div>
         </div>
     </div>
     <div *ngFor="let museum of filteredMuseums">
@@ -20,7 +22,9 @@
             <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
             <p class="museum-city">{{museum?.commune}}</p>
-            <a class="museum-site" [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
+            <div class="museum-site">
+                <a [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
+            </div>
         </div>
     </div>
     <div *ngFor="let museum of HandiLabelMuseums">
@@ -28,7 +32,9 @@
             <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
             <p class="museum-city">{{museum?.commune}}</p>
-            <a class="museum-site" [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
+            <div class="museum-site">
+                <a [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
+            </div>
         </div>
     </div>
 </div>

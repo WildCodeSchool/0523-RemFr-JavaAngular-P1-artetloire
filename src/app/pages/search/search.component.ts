@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { searchService } from "src/app/services/search.service";
 import { Museums } from "src/app/models/museums";
 import { Api, Fields } from "src/app/models/api";
-import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-search",
@@ -12,7 +11,7 @@ import { ToastrService } from "ngx-toastr";
 export class searchComponent implements OnInit {
   museum: Museums[] = [];
   museumData!: Fields[];
-  museeTheme = "";
+  museumTheme = "";
   museumName = "";
   museumLabelHandi = "";
   museumLabel = "";
@@ -23,15 +22,13 @@ export class searchComponent implements OnInit {
   labelMuseums: Museums[] = [];
   HandiLabelMuseums: Museums[] = [];
   themeMuseums: Museums[] = [];
+  showSeeMore = false;
 
-  constructor(
-    private searchService: searchService,
-    private toastr: ToastrService
-  ) {}
+  constructor(private searchService: searchService) {}
 
   ngOnInit() {
     this.getMuseumData();
-    this.filteredMuseums = this.getMuseumByTheme(this.museeTheme);
+    this.filteredMuseums = this.getMuseumByTheme(this.museumTheme);
   }
 
   getMuseumData(): void {
@@ -46,6 +43,7 @@ export class searchComponent implements OnInit {
               if (theme && theme !== "") {
                 themes.push(...theme.split(";"));
               }
+
               return themes;
             }, [])
           )
@@ -95,17 +93,20 @@ export class searchComponent implements OnInit {
   }
 
   onThemeChange() {
-    this.themeMuseums = this.getMuseumByTheme(this.museeTheme);
+    this.themeMuseums = this.getMuseumByTheme(this.museumTheme).slice(0, 2);
+    this.showSeeMore = true;
   }
 
   getMuseumByName() {
     this.filteredMuseums = this.museumData
       .filter((museum) => {
-        return museum.fields.nom_offre
-          .toLowerCase()
-          .includes(this.museumName.toLowerCase());
+        const museumName = museum.fields.nom_offre.toLowerCase();
+        const searchQuery = this.museumName.toLowerCase();
+
+        return museumName.substring(1).includes(searchQuery);
       })
       .map((museum) => museum.fields);
+
     console.log("Musées filtrés", this.filteredMuseums);
   }
 
@@ -122,16 +123,15 @@ export class searchComponent implements OnInit {
         filteredMuseumLabelHandi.push(museumData.fields);
       }
     });
-    alert("Hello");
 
     return filteredMuseumLabelHandi;
   }
 
-  showSuccess() {
-    this.toastr.success("Hello world!", "Toastr fun!");
-  }
   onLabelHandiChange() {
-    this.HandiLabelMuseums = this.getMuseumByLabelHandi(this.museumLabelHandi);
+    this.HandiLabelMuseums = this.getMuseumByLabelHandi(
+      this.museumLabelHandi
+    ).slice(0, 2);
+    this.showSeeMore = true;
   }
 
   getMuseumByLabel(label: string): Museums[] {
@@ -147,6 +147,19 @@ export class searchComponent implements OnInit {
   }
 
   onLabelChange() {
-    this.labelMuseums = this.getMuseumByLabel(this.museumLabel);
+    this.labelMuseums = this.getMuseumByLabel(this.museumLabel).slice(0, 2);
+    this.showSeeMore = true;
+  }
+  seeMore() {
+    this.showSeeMore = false;
+    if (this.museumLabel.length > 2) {
+      this.labelMuseums = this.getMuseumByLabel(this.museumLabel);
+    } else if (this.museumTheme) {
+      this.themeMuseums = this.getMuseumByTheme(this.museumTheme);
+    } else {
+      this.HandiLabelMuseums = this.getMuseumByLabelHandi(
+        this.museumLabelHandi
+      );
+    }
   }
 }

@@ -1,57 +1,59 @@
 .museums-container {
-  width: 30rem;
+  width: 20rem;
   margin: 1rem;
   padding: 1rem;
-  background-color: #f2f2f2;
+  background-color: var(--white);
   border-radius: 0.5rem;
-}
 
-.museum-image {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-}
+  .museum-image {
+    width: 100%;
+    height: 15rem;
+    border-radius: 0.3rem;
+  }
 
-.museum-name {
-  background: #3a3737ba;
-  color: #f2f2f2;
-  display: flex;
-  width: 28rem;
-  height: 4rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 3rem;
-  position: relative;
-  bottom: 9rem;
-  font-style: italic;
-}
+  .museum-name {
+    background: #444444b6;
+    color: var(--white);
+    display: flex;
+    width: 17rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3rem;
+    position: relative;
+    left: 1rem;
+    bottom: 7rem;
+    font-style: italic;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.5rem;
+  }
 
-.museum-city {
-  font-family: Inter;
-  font-size: 1.5rem;
-  line-height: 1.8rem;
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-}
+  .museum-city {
+    font-family: var(--inter);
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
 
-.museum-site {
-  font-family: Inter;
-  font-size: 1.5rem;
-  line-height: 1.8rem;
-  margin-top: 0.5rem;
-  display: block;
-  text-decoration: none;
-  color: #333;
-}
+  .museum-site,
+  a {
+    font-family: var(--inter);
+    font-size: 1rem;
+    line-height: 1.8rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: var(--grey);
+  }
 
-.museum-site:hover {
-  text-decoration: underline;
+  .museum-site:hover {
+    text-decoration: underline;
+  }
 }
-
 @media (max-width: 768px) {
   .museums-container {
-    width: 90%;
     padding: 1rem;
     display: flex;
     flex-direction: column;
