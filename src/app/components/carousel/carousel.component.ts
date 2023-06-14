@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-carrousel',
-  templateUrl: './carrousel.component.html',
-  styleUrls: ['./carrousel.component.scss']
+  selector: 'app-carousel',
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.scss']
 })
-export class CarrouselComponent implements OnInit {
+export class CarouselComponent implements OnInit {
   Index: number = 1;
 
   ngOnInit() {

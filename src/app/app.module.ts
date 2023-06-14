@@ -10,7 +10,7 @@ import { DemoComponent } from './components/demo/demo.component';
 import { DemoPipe } from './pipes/demo.pipe';
 import { DemoDirective } from './directives/demo.directive';
 import { AccueilPageComponent } from './pages/accueil/accueil.component';
-import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
     DemoPipe,
     DemoDirective,
     AccueilPageComponent,
-    CarrouselComponent
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
