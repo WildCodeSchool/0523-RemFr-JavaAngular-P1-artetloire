@@ -11,7 +11,7 @@ import { Api, Fields } from "src/app/models/api";
 export class searchComponent implements OnInit {
   museum: Museums[] = [];
   museumData!: Fields[];
-  museeTheme = "";
+  museumTheme = "";
   museumName = "";
   museumLabelHandi = "";
   museumLabel = "";
@@ -22,67 +22,67 @@ export class searchComponent implements OnInit {
   labelMuseums: Museums[] = [];
   HandiLabelMuseums: Museums[] = [];
   themeMuseums: Museums[] = [];
+  showSeeMore = false;
 
   constructor(private searchService: searchService) {}
 
   ngOnInit() {
     this.getMuseumData();
-    this.filteredMuseums = this.getMuseumByTheme(this.museeTheme);
+    this.filteredMuseums = this.getMuseumByTheme(this.museumTheme);
   }
 
   getMuseumData(): void {
-    this.searchService.getMuseums().subscribe(
-      (data: Api) => {
-        this.museumData = data.records;
+    this.searchService.getMuseums().subscribe((data: Api) => {
+      this.museumData = data.records;
 
-        this.themeOptions = Array.from(
-          new Set(
-            this.museumData.reduce((themes: string[], museum: Fields) => {
-              const theme = museum.fields.theme_musee;
-              if (theme && theme !== "") {
-                themes.push(...theme.split(";"));
-              }
-              return themes;
-            }, [])
-          )
-        ).sort();
+      this.themeOptions = Array.from(
+        new Set(
+          this.museumData.reduce((themes: string[], museum: Fields) => {
+            const theme = museum.fields.theme_musee;
+            if (theme && theme !== "") {
+              themes.push(...theme.split(";"));
+            }
 
-        this.labelOptions = Array.from(
-          new Set(
-            this.museumData.reduce((labels: string[], museum: Fields) => {
-              const label = museum.fields.labels;
-              if (label && label !== "") {
-                labels.push(...label.split(";"));
+            return themes;
+          }, [])
+        )
+      ).sort();
+
+      this.labelOptions = Array.from(
+        new Set(
+          this.museumData.reduce((labels: string[], museum: Fields) => {
+            const label = museum.fields.labels;
+            if (label && label !== "") {
+              labels.push(...label.split(";"));
+            }
+            return labels;
+          }, [])
+        )
+      ).sort();
+      this.labelHandiOptions = Array.from(
+        new Set(
+          this.museumData.reduce(
+            (label_tourisme_handicap: string[], museum: Fields) => {
+              const labelHandic = museum.fields.label_tourisme_handicap;
+              if (labelHandic && labelHandic !== "") {
+                label_tourisme_handicap.push(...labelHandic.split(";"));
               }
-              return labels;
-            }, [])
+              return label_tourisme_handicap;
+            },
+            []
           )
-        ).sort();
-        this.labelHandiOptions = Array.from(
-          new Set(
-            this.museumData.reduce(
-              (label_tourisme_handicap: string[], museum: Fields) => {
-                const labelHandic = museum.fields.label_tourisme_handicap;
-                if (labelHandic && labelHandic !== "") {
-                  label_tourisme_handicap.push(...labelHandic.split(";"));
-                }
-                return label_tourisme_handicap;
-              },
-              []
-            )
-          )
-        ).sort();
-      },
-      (error) => {
-        console.error("Erreur lors de la récupération des options", error);
-      }
-    );
+        )
+      ).sort();
+    });
   }
   getMuseumByTheme(newList: string): Museums[] {
     const filteredMuseum: Museums[] = [];
 
     this.museumData.map((museumData) => {
-      if (museumData.fields.theme_musee == newList) {
+      if (
+        museumData.fields.theme_musee &&
+        museumData.fields.theme_musee.includes(newList)
+      ) {
         filteredMuseum.push(museumData.fields);
       }
     });
@@ -91,18 +91,19 @@ export class searchComponent implements OnInit {
   }
 
   onThemeChange() {
-    this.themeMuseums = this.getMuseumByTheme(this.museeTheme);
+    this.themeMuseums = this.getMuseumByTheme(this.museumTheme).slice(0, 2);
+    this.showSeeMore = true;
   }
 
   getMuseumByName() {
     this.filteredMuseums = this.museumData
       .filter((museum) => {
-        return museum.fields.nom_offre
-          .toLowerCase()
-          .includes(this.museumName.toLowerCase());
+        const museumName = museum.fields.nom_offre.toLowerCase();
+        const searchQuery = this.museumName.toLowerCase();
+
+        return museumName.substring(1).includes(searchQuery);
       })
       .map((museum) => museum.fields);
-    console.log("Musées filtrés", this.filteredMuseums);
   }
 
   getMuseumByLabelHandi(labelHandi: string): Museums[] {
@@ -123,14 +124,20 @@ export class searchComponent implements OnInit {
   }
 
   onLabelHandiChange() {
-    this.HandiLabelMuseums = this.getMuseumByLabelHandi(this.museumLabelHandi);
+    this.HandiLabelMuseums = this.getMuseumByLabelHandi(
+      this.museumLabelHandi
+    ).slice(0, 2);
+    this.showSeeMore = true;
   }
 
   getMuseumByLabel(label: string): Museums[] {
     const filteredMuseumLabel: Museums[] = [];
 
     this.museumData.forEach((museumData) => {
-      if (museumData.fields.labels == label) {
+      if (
+        museumData.fields.labels &&
+        museumData.fields.labels.includes(label)
+      ) {
         filteredMuseumLabel.push(museumData.fields);
       }
     });
@@ -139,6 +146,19 @@ export class searchComponent implements OnInit {
   }
 
   onLabelChange() {
-    this.labelMuseums = this.getMuseumByLabel(this.museumLabel);
+    this.labelMuseums = this.getMuseumByLabel(this.museumLabel).slice(0, 2);
+    this.showSeeMore = true;
+  }
+  seeMore() {
+    this.showSeeMore = false;
+    if (this.museumLabel.length > 2) {
+      this.labelMuseums = this.getMuseumByLabel(this.museumLabel);
+    } else if (this.museumTheme) {
+      this.themeMuseums = this.getMuseumByTheme(this.museumTheme);
+    } else {
+      this.HandiLabelMuseums = this.getMuseumByLabelHandi(
+        this.museumLabelHandi
+      );
+    }
   }
 }

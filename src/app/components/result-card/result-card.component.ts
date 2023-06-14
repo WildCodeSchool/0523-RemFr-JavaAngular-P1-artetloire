@@ -11,4 +11,12 @@ export class ResultCardComponent {
   @Input() labelMuseums: Museums[] = [];
   @Input() HandiLabelMuseums: Museums[] = [];
   @Input() themeMuseums: Museums[] = [];
+
+  selectedMuseum!: Museums;
+  showDetails = false;
+
+  toggleDetails(selectedMuseum: Museums) {
+    this.selectedMuseum = selectedMuseum;
+    return this.selectedMuseum;
+  }
 }
