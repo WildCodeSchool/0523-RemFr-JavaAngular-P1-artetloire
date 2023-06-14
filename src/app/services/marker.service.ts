@@ -3,12 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
 import { Observable, map } from 'rxjs';
 
+interface Museum {
+  nom: string;
+  coords: [number, number];
+  site: string;
+  adresse: string;
+  codePostal: string;
+  ville: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class MarkerService {
   showModal = false;
-  
+  museumInfo: any;
+
   constructor(private http: HttpClient) { }
   
   getData() {
@@ -16,37 +26,35 @@ export class MarkerService {
 
     return this.http.get(api);
   }
+
+  getAllMuseumData(): Observable<Museum[]> {
+    return this.getData().pipe(
+      map((res: any) => {
+        return res.records.map((record: any) => {
+          return {
+            nom: record.fields.nom_offre,
+            coords: record.fields.position_geographique,
+            site: record.fields.site_web,
+            adresse: record.fields.adresse1,
+            codePostal : record.fields.code_postal,
+            ville : record.fields.commune
+          };
+        });
+      })
+    );
+  }
   
   makeCapitalMarkers(map: L.Map): void {
-    this.getData().subscribe((res: any) => {
-      const positions = res.records.map((record: any) => record.fields.position_geographique);
-      for (const position of positions) {
-        const lat = position[0];
-        const lon = position[1];
+    this.getAllMuseumData().subscribe((museums: Museum[]) => {
+      museums.forEach((museum: Museum) => {
+        const [lat, lon] = museum.coords;
         const marker = L.marker([lat, lon]);
         marker.addTo(map);
-        marker.on("click",  () => {
+        marker.on("click", () => {
           this.showModal = true;
-        })
-      }
+          this.museumInfo = museum;
+        });
+      });
     });
-  }
-
-  getMuseumNames(): Observable<string[]> {
-    return this.getData().pipe(
-      map((res: any) => {
-        const museumNames = res.records.map((record: any) => record.fields.nom_offre);
-        return museumNames;
-      })
-    );
-  }
-
-  getMuseumCoords(): Observable<string[]> {
-    return this.getData().pipe(
-      map((res: any) => {
-        const museumCoords = res.records.map((record: any) => record.fields.position_geographique);
-        return museumCoords;
-      })
-    );
   }
 }
