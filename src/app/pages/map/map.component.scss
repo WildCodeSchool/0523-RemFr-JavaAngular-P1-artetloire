@@ -15,7 +15,7 @@
 }
 
 .div_image {
-    background-color: white;
+    background-color: var(--white);
     width: 2.10rem;
     margin-right: 0.60rem;
     border: 2px solid rgb(194, 194, 194);
@@ -48,7 +48,7 @@
 }
 
 .barre-recherche {
-    background-color: #228b89;
+    background-color: var(--turquoise);
     width: 75%;
     height: 2rem;
     display: flex;
@@ -62,11 +62,11 @@
     border-radius: 0;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    border-bottom: 1px solid #f4f4f4 ;
+    border-bottom: 1px solid var(--white) ;
 }
 
 .container-barre > ul {
-    background-color: #228b89;
+    background-color: var(--turquoise);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -82,13 +82,13 @@
 }
 
 .container-barre > ul > li {
-    color: #e4e4e4;
+    color: var(--white);
     cursor: pointer;
     padding: 0.4rem 1rem;
 }
 
 .container-barre > ul > li:hover {
-    background-color: #1c7372;
+    background-color: var(--blue_second);
 }
 
 .barre-recherche > input {
@@ -97,11 +97,11 @@
     font-size: 20px;
     border: none;
     background-color: transparent;
-    color: #fcfcfc;
+    color: var(--white);
 }
 
 .barre-recherche > input::placeholder {
-    color: #e4e4e4;
+    color: var(--white);
 }
 
 .barre-recherche > input:focus {
@@ -137,15 +137,11 @@
 }
 
 .musee-container {
-    background-color: white;
+    background-color: var(--white);
     position: relative;
     z-index: 10;
     height: 30%;
     text-align: center;
-}
-
-.musee-container > h3 {
-    font-weight: bolder;
 }
 
 ::-webkit-scrollbar {
@@ -153,7 +149,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--white);
   border-radius: 5px;
 }
 
