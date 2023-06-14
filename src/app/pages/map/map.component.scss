@@ -24,7 +24,6 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    z-index: 10;
 }
 
 .div_image:hover {
@@ -42,19 +41,53 @@
 
 .container-barre {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 15rem;
+    height: 15rem;
 }
 
 .barre-recherche {
     background-color: #228b89;
     width: 75%;
+    height: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 15px;
     z-index: 10;
+}
+
+.barre-recherche.br {
+    border-radius: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 1px solid #f4f4f4 ;
+}
+
+.container-barre > ul {
+    background-color: #228b89;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 75%;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.container-barre.zi {
+    z-index: 10;
+}
+
+.container-barre > ul > li {
+    color: #e4e4e4;
+    cursor: pointer;
+    padding: 0.4rem 1rem;
+}
+
+.container-barre > ul > li:hover {
+    background-color: #1c7372;
 }
 
 .barre-recherche > input {
@@ -108,4 +141,22 @@
     z-index: 10;
     height: 30%;
     text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

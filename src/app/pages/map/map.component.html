@@ -16,12 +16,27 @@
       <img src="../../../assets/centrer.png" alt="bouton_recentrer" />
     </button>
   </div>
-  <div class="container-barre">
-    <div class="barre-recherche">
-      <input type="text" placeholder="Rechercher" [(ngModel)]="inputV" />
+  <div class="container-barre" [ngClass]="{ zi: filteredMuseum.length > 0 }">
+    <div class="barre-recherche" [ngClass]="{ br: filteredMuseum.length > 0 }">
+      <input
+        type="text"
+        placeholder="Rechercher"
+        [(ngModel)]="inputV"
+        (input)="searchMuseum()"
+      />
       <button (click)="searchMuseum()">
         <img src="../../../assets/recherche.png" alt="logo_recherche" />
       </button>
     </div>
+    <ul class="museum-list" *ngIf="filteredMuseum.length > 0">
+      <li
+        *ngFor="let museum of filteredMuseum"
+        (click)="selectMuseum(museum)"
+        (keyup)="onKeyUp($event, museum)"
+        tabindex="0"
+      >
+        {{ museum }}
+      </li>
+    </ul>
   </div>
 </div>

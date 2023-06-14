@@ -48,6 +48,7 @@ export class MapComponent implements AfterViewInit, OnInit {
   museumNameTab!: string[];
   museumCoordTab!: [number, number][];
   inputV = "";
+  filteredMuseum: string[] = [];
 
   constructor(public markerService: MarkerService, private toastr: ToastrService) { }
 
@@ -90,13 +91,25 @@ export class MapComponent implements AfterViewInit, OnInit {
   }
 
   searchMuseum(): void {
-    const indexMuseum = this.museumNameTab.indexOf(this.inputV);
+    this.filteredMuseum = this.museumNameTab.filter((museum: string) =>
+      museum.toLowerCase().includes(this.inputV.toLowerCase())
+    );
+  }
+
+  selectMuseum(museum: string): void {
+    const indexMuseum = this.museumNameTab.indexOf(museum);
     if (indexMuseum >= 0) {
       const museumCoords = this.museumCoordTab[indexMuseum];
       const position = L.latLng(museumCoords[0], museumCoords[1])
       this.map.panTo(position);
     } else {
-      this.toastr.error('Pas trouvé', "Non");
+      this.toastr.error('Pas trouvé', 'Non');
+    }
+  }
+
+  onKeyUp(event: KeyboardEvent, museum: string): void {
+    if (event.key === 'Enter') {
+      this.selectMuseum(museum);
     }
   }
 }
