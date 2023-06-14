@@ -1,3 +1,7 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 .museums-container {
   width: 20rem;
   margin: 1rem;
@@ -16,15 +20,14 @@
     color: var(--white);
     display: flex;
     width: 17rem;
-    height: 3rem;
     justify-content: center;
     align-items: center;
     border-radius: 3rem;
     position: relative;
-    bottom: 7rem;
+    bottom: 5rem;
     font-style: italic;
     font-size: 0.8rem;
-    padding: 0.5rem 0.5rem;
+    padding: 0.3rem 0.3rem;
   }
 
   .museum-city {

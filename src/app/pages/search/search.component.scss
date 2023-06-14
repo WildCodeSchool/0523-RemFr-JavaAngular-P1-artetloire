@@ -61,6 +61,8 @@ input[type="text"]::placeholder {
 .name-search-title {
   display: flex;
   justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .name-search {
@@ -91,7 +93,7 @@ button:active {
 }
 .button-see-more {
   display: flex;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .button-see-more button {
