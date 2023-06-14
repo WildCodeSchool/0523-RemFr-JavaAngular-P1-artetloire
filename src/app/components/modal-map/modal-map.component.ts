@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modal-map',
@@ -6,6 +6,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./modal-map.component.scss']
 })
 export class ModalMapComponent {
+  @Input() museumInfo: any;
+
   @Output() closeModal = new EventEmitter();
 
   close(): void {
