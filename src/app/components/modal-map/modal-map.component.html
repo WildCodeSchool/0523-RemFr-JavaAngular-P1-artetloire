@@ -4,7 +4,7 @@
       <span>{{ museumInfo.nom }}</span>
     </div>
     <img
-      src="https://www.musees.strasbourg.eu/documents/30424/508640/MBA_2022_39.jpg/a5e7b146-97c8-5620-78aa-65797846eac0?t=1675247055686"
+      [src]="'../../../assets//images2/' + museumInfo.uuid + '.jpg'"
       alt="image_musée"
     />
     <div class="modal-int-adresse">
