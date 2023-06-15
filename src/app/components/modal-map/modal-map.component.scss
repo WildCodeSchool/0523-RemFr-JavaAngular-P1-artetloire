@@ -32,10 +32,7 @@
 }
 
 .modal-int > img {
-    width: 12rem;
-    height: 6.5rem;
-    background-size: cover;
-    background-position: center;
+    max-height: 6.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 15px;

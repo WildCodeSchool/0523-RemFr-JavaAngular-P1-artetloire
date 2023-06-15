@@ -4,6 +4,7 @@ import * as L from 'leaflet';
 import { Observable, map } from 'rxjs';
 
 interface Museum {
+  uuid: string
   nom: string;
   coords: [number, number];
   site: string;
@@ -32,6 +33,7 @@ export class MarkerService {
       map((res: any) => {
         return res.records.map((record: any) => {
           return {
+            uuid: record.recordid,
             nom: record.fields.nom_offre,
             coords: record.fields.position_geographique,
             site: record.fields.site_web,
@@ -53,6 +55,7 @@ export class MarkerService {
         marker.on("click", () => {
           this.showModal = true;
           this.museumInfo = museum;
+          console.log(this.museumInfo)
         });
       });
     });
