@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
   Index: number = 1;
+  Timeout: number = 0;
 
   ngOnInit() {
     this.Carrousel();
@@ -20,6 +21,21 @@ export class CarouselComponent implements OnInit {
         this.Index = 1;
       }
       this.Carrousel();
-    }, 5000);
+    }, 25000);
   }
+
+  /*ManualTravel() {
+    function() {
+      clearTimeout(this.Timeout);
+    }
+  }
+
+  showMore() {
+    let more = document.querySelectorAll('.more');
+    for (let i = 0; i != more.length; i++) {
+      more[i].addEventListener('click', function(){
+        more[i].classList.toggle('active');
+      })
+    }
+  }*/
 }
