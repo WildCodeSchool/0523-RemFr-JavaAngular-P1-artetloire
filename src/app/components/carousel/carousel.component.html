@@ -1,16 +1,18 @@
 <section class="container">
     <div class="slider-wrapper">
         <div class="slider">
-            <img id="slider-element-1" class="slider-element" src="../../../assets/images/Undertale.jpg" alt="Undertale">
-            <img id="slider-element-2" class="slider-element" src="../../../assets/images/Kingdom_Hearts.jpg" alt="Kingdom Hearts">
-            <img id="slider-element-3" class="slider-element" src="../../../assets/images/WOT.jpg" alt="World Of Tanks">
+            <img id="slider-element-1" class="slider-element" src="../../../assets/temp/Undertale.jpg" alt="Undertale">
+            <img id="slider-element-2" class="slider-element" src="../../../assets/temp/Kingdom_Hearts.jpg" alt="Kingdom Hearts">
+            <img id="slider-element-3" class="slider-element" src="../../../assets/temp/WOT.jpg" alt="World Of Tanks">
+            <img id="slider-element-4" class="slider-element" src="../../../assets/temp/Kingdom_Hearts.jpg" alt="Kingdom Hearts">
         </div>
     </div>
     <div class="slider-nav">
         <div class="nav-container">
-            <a id="nav-1" href="#slider-element-1"></a>
-            <a id="nav-2" href="#slider-element-2"></a>
-            <a id="nav-3" href="#slider-element-3"></a>
+            <a id="nav-1" (click)="manualTravel(1)" href="#slider-element-1"></a>
+            <a id="nav-2" (click)="manualTravel(2)" href="#slider-element-2"></a>
+            <a id="nav-3" (click)="manualTravel(3)" href="#slider-element-3"></a>
+            <a id="nav-4" (click)="manualTravel(4)" href="#slider-element-4"></a>
         </div>
     </div>
 </section>
@@ -18,7 +20,7 @@
     <div class="description-container">
         <div class="text-container">
             <h3>title</h3>
-            <!--Module Content-->
+            <!--Module Content Site description-->
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet,
                 adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,

@@ -7,30 +7,30 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
   Index: number = 1;
-  Timeout: number = 0;
+  Timeout: any = 0; // Change this you little piece of shit !
 
   ngOnInit() {
     this.Carrousel();
   }
 
   Carrousel() {
-    setTimeout(() => {
+    this.Timeout = setTimeout(() => {
       document.getElementById('nav-' + this.Index)?.click();
       this.Index++;
       if (this.Index > document.getElementsByClassName("slider-element").length) {
         this.Index = 1;
       }
       this.Carrousel();
-    }, 25000);
+    }, 15000);
   }
 
-  /*ManualTravel() {
-    function() {
-      clearTimeout(this.Timeout);
-    }
+  manualTravel(id: number) {
+    clearTimeout(this.Timeout);
+    this.Index = id;
+    this.Carrousel();
   }
 
-  showMore() {
+  /*showMore() {
     let more = document.querySelectorAll('.more');
     for (let i = 0; i != more.length; i++) {
       more[i].addEventListener('click', function(){
