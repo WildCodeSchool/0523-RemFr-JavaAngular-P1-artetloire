@@ -77,16 +77,16 @@ export class searchComponent implements OnInit {
   }
   getMuseumByTheme(newList: string): Museums[] {
     const filteredMuseum: Museums[] = [];
-
-    this.museumData.map((museumData) => {
-      if (
-        museumData.fields.theme_musee &&
-        museumData.fields.theme_musee.includes(newList)
-      ) {
-        filteredMuseum.push(museumData.fields);
-      }
-    });
-
+    if (this.museumData) {
+      this.museumData.map((museumData) => {
+        if (
+          museumData.fields.theme_musee &&
+          museumData.fields.theme_musee.includes(newList)
+        ) {
+          filteredMuseum.push(museumData.fields);
+        }
+      });
+    }
     return filteredMuseum;
   }
 

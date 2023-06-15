@@ -1,0 +1,7 @@
+<div>
+    <p>Liste des favoris</p>
+    <app-result-card (testEmit)="testing($event)" (favoriteAdded)="handleFavoriteAdded($event)"></app-result-card>
+    <ul>
+        <li class="list-item" *ngFor="let museum of updateFavorite">{{ museum.nom_offre }}</li>
+    </ul>
+</div>

@@ -17,6 +17,7 @@ import { ResultCardComponent } from "./components/result-card/result-card.compon
 
 import { CommonModule } from "@angular/common";
 import { ToastrModule } from "ngx-toastr";
+import { FavoriteComponent } from './favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ToastrModule } from "ngx-toastr";
     ResultCardComponent,
     MapComponent,
     ModalMapComponent,
+    FavoriteComponent,
   ],
   imports: [
     BrowserModule,

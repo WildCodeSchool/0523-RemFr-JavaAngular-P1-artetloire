@@ -53,6 +53,9 @@
   .museum-site:hover {
     text-decoration: underline;
   }
+  .selected {
+    background-color: red;
+  }
 }
 @media (max-width: 768px) {
   .museums-container {

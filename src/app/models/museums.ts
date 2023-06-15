@@ -24,6 +24,7 @@ export class Museums {
     public labels: string,
     public activite_sur_place: string,
     public telephone: string,
-    public label_tourisme_handicap: string
+    public label_tourisme_handicap: string,
+    public favorite: boolean
   ) {}
 }
