@@ -5,6 +5,9 @@
                 <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             </button>
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
+            <button class="favori" (click)="toggleFavorite(museum)">
+                {{museum.favorite ? '❤' : '❤️' }}
+            </button>
             <p class="museum-city">{{museum?.commune}}</p>
             <div class="details" *ngIf="showDetails ">
                 <span class="museum-city">{{museum?.commune}}</span>
@@ -20,6 +23,10 @@
                 <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             </button>
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
+            <button class="favori" (click)="addFavorite(museum)">
+                {{ museum.favorite ? '❤' : '❤️' }}
+            </button>
+
             <div class="details" *ngIf="selectedMuseum === museum">
                 <span class="museum-city">{{museum?.commune}}</span>
                 <div class="museum-site">
@@ -34,6 +41,10 @@
                 <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             </button>
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
+            <button class="favori" (click)="toggleFavorite(museum)">
+                {{ museum.favorite ? '❤' : '❤️' }}
+            </button>
+
             <div class="details" *ngIf="selectedMuseum === museum">
                 <span class="museum-city">{{museum?.commune}}</span>
                 <div class="museum-site">
@@ -48,6 +59,9 @@
                 <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             </button>
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
+            <button class="favori" (click)="toggleFavorite(museum)">
+                {{ museum.favorite ? '❤' : '❤️' }}
+            </button>
             <div class="details" *ngIf="selectedMuseum === museum">
                 <span class="museum-city">{{museum?.commune}}</span>
                 <div class="museum-site">
@@ -56,4 +70,3 @@
             </div>
         </div>
     </div>
-</div>
