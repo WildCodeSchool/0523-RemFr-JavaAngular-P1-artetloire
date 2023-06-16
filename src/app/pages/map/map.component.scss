@@ -1,0 +1,163 @@
+.container-all {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.div_image_centrer {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 5.5rem;
+}
+
+.div_image {
+    background-color: var(--white);
+    width: 2.10rem;
+    margin-right: 0.60rem;
+    border: 2px solid rgb(194, 194, 194);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.div_image:hover {
+    background-color: #f4f4f4;
+}
+
+.div_image:focus {
+    background-color: #f4f4f4;
+}
+
+.div_image > img {
+    width: 1.5rem;
+    margin: 0.20rem;
+}
+
+.container-barre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 15rem;
+}
+
+.barre-recherche {
+    background-color: var(--turquoise);
+    width: 75%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    z-index: 10;
+}
+
+.barre-recherche.br {
+    border-radius: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 1px solid var(--white) ;
+}
+
+.container-barre > ul {
+    background-color: var(--turquoise);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 75%;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.container-barre.zi {
+    z-index: 10;
+}
+
+.container-barre > ul > li {
+    color: var(--white);
+    cursor: pointer;
+    padding: 0.4rem 1rem;
+}
+
+.container-barre > ul > li:hover {
+    background-color: var(--blue_second);
+}
+
+.barre-recherche > input {
+    margin-left: 0.5rem;
+    width: 100%;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+}
+
+.barre-recherche > input::placeholder {
+    color: var(--white);
+}
+
+.barre-recherche > input:focus {
+    outline: none;
+}
+
+.barre-recherche > button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.barre-recherche > button > img {
+    scale: 0.90;
+}
+
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 9;
+}
+
+.map-frame {
+    height: 72%;
+}
+
+#map {
+    height: 100%;
+}
+
+.musee-container {
+    background-color: var(--white);
+    position: relative;
+    z-index: 10;
+    height: 30%;
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

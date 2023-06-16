@@ -1,0 +1,31 @@
+<div class="modal-map">
+  <div class="modal-int">
+    <div class="modal-int-title">
+      <span>{{ museumInfo.nom }}</span>
+    </div>
+    <img
+      [src]="'../../../assets//images2/' + museumInfo.uuid + '.jpg'"
+      alt="image_musée"
+    />
+    <div class="modal-int-adresse">
+      <span
+        >{{ museumInfo.adresse }}, {{ museumInfo.codePostal }}
+        {{ museumInfo.ville }}</span
+      >
+    </div>
+    <div class="modal-int-horraire">
+      <p>
+        Dimanche de 14h à 18h <br />
+        Lundi de 14h à 18h <br />
+        Mercredi de 14h à 18h <br />
+        Jeudi de 14h à 18h <br />
+        Vendredi de 14h à 18h <br />
+        Samedi de 14h à 18h
+      </p>
+    </div>
+    <div *ngIf="museumInfo.site" class="modal-int-redirection">
+      <a [href]="museumInfo.site">{{ museumInfo.site }}</a>
+    </div>
+    <button (click)="close()">Close</button>
+  </div>
+</div>
