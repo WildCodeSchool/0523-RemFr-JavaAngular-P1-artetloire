@@ -66,6 +66,7 @@ export class MapComponent implements AfterViewInit, OnInit {
       this.museumNameTab = museums.map(museum => museum.nom);
       this.museumCoordTab = museums.map(museum => museum.coords);
     });
+    console.log(this.museumAll)
   }
 
   getLocation(): Observable<L.LatLng> {

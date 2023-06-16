@@ -30,6 +30,7 @@ export class ResultCardComponent implements OnInit {
   session: any;
   toggleDetails(selectedMuseum: Museums) {
     this.selectedMuseum = selectedMuseum;
+    console.log(this.selectedMuseum)
     return this.selectedMuseum;
   }
 
