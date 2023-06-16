@@ -180,11 +180,18 @@
     flex-direction: row-reverse;
 }
 
+.left > button, .right > button {
+    font-weight: bolder;
+    font-size: 20px;
+    border: none;
+}
+
 .carte-model-container {
     width: 85%;
     height: 100%;
     display: flex;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .carte-model {
