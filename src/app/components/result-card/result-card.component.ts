@@ -64,7 +64,7 @@ export class ResultCardComponent implements OnInit {
     this.testEmit.emit("hello");
   }
   goToFavorites(favoriteMuseum: any) {
-    this.router.navigate(["/favoris"]);
+    this.router.navigate(["/favorite"]);
   }
   removeFavorite(favori: Museums) {
     const index = this.favList.findIndex((m) => m === favori);

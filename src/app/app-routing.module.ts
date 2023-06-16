@@ -19,7 +19,7 @@ const routes: Routes = [
     pathMatch: "full",
   },
   {
-    path: "favoris",
+    path: "favorite",
     component: FavoriteComponent,
   },
 ];
