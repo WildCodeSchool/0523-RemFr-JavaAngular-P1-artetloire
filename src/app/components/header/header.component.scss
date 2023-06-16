@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fcfcfc;
+  // Uncomment two lines to stick header on top
+  // position: sticky;
+  // top: 0;
+}
+
+header img {
+  max-height: 48px;
+  margin: 0.3rem;
+}
