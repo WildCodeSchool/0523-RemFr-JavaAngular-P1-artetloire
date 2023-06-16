@@ -53,6 +53,8 @@ export class MapComponent implements AfterViewInit, OnInit {
   filteredMuseum: string[] = [];
   isListOpen = true;
 
+  addedCards: any[] = [];
+
   constructor(public markerService: MarkerService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -115,5 +117,31 @@ export class MapComponent implements AfterViewInit, OnInit {
     if (event.key === 'Enter') {
       this.selectMuseum(museum);
     }
+  }
+
+  onRightButtonClick(): void {
+    const carteContainerIn = document.querySelector('.carte-model-container');
+    const carteModel = document.querySelector('.carte-model') as HTMLElement;
+  
+    if (carteContainerIn && carteModel) {
+      const carteModelStyle = getComputedStyle(carteModel);
+      const carteModelWidth = carteModel.offsetWidth + parseFloat(carteModelStyle.marginLeft) + parseFloat(carteModelStyle.marginRight);
+      carteContainerIn.scrollLeft += carteModelWidth;
+    }
+  }
+
+  onLeftButtonClick(): void {
+    const carteContainerIn = document.querySelector('.carte-model-container');
+    const carteModel = document.querySelector('.carte-model') as HTMLElement;
+  
+    if (carteContainerIn && carteModel) {
+      const carteModelStyle = getComputedStyle(carteModel);
+      const carteModelWidth = carteModel.offsetWidth + parseFloat(carteModelStyle.marginLeft) + parseFloat(carteModelStyle.marginRight);
+      carteContainerIn.scrollLeft -= carteModelWidth;
+    }
+  }
+
+  onCardInfo(museumInfo: any): void {
+    this.addedCards.push(museumInfo);
   }
 }

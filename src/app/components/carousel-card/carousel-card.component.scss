@@ -1,0 +1,34 @@
+.card-carousel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-carousel-img {
+    height: 70%;
+    width: 100%;
+}
+
+.card-carousel-img > img {
+    max-height: 7rem;
+    max-width: 10rem;
+    border-radius: 15px;
+    box-shadow:  3px 3px 9px #919191, -3px -3px 9px #ffffff;
+}
+
+.button_div {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button_div > button {
+    border: none;
+    background-color: transparent;
+    height: fit-content;
+}
+
+.button_div > button > img {
+    max-width: 1.5rem;
+}
