@@ -26,7 +26,7 @@ import { CarouselCardComponent } from './components/carousel-card/carousel-card.
     ResultCardComponent,
     MapComponent,
     ModalMapComponent,
-    CarouselCardComponent,
+    CarouselCardComponent
   ],
   imports: [
     BrowserModule,
