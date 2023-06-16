@@ -17,6 +17,7 @@ import { ResultCardComponent } from "./components/result-card/result-card.compon
 
 import { CommonModule } from "@angular/common";
 import { ToastrModule } from "ngx-toastr";
+import { CarouselCardComponent } from './components/carousel-card/carousel-card.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ToastrModule } from "ngx-toastr";
     ResultCardComponent,
     MapComponent,
     ModalMapComponent,
+    CarouselCardComponent,
   ],
   imports: [
     BrowserModule,

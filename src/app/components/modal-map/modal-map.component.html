@@ -26,6 +26,9 @@
     <div *ngIf="museumInfo.site" class="modal-int-redirection">
       <a [href]="museumInfo.site">{{ museumInfo.site }}</a>
     </div>
-    <button (click)="close()">Close</button>
+    <div>
+      <button (click)="close()">Fermer</button>
+      <button (click)="addCard()">Ajouter</button>
+    </div>
   </div>
 </div>
