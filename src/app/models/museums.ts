@@ -1,5 +1,6 @@
 export class Museums {
   constructor(
+    public recordid: string,
     public id: string,
     public nom_offre: string,
     public duree_visite_individuel_en_h: string,

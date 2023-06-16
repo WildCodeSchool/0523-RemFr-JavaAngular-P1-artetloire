@@ -1,18 +1,14 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
 import { Museums } from "src/app/models/museums";
-import { FavoriteService } from "src/app/services/favorite.service";
 
 @Component({
   selector: "app-result-card",
   templateUrl: "./result-card.component.html",
   styleUrls: ["./result-card.component.scss"],
 })
-export class ResultCardComponent implements OnInit {
-  constructor(
-    private favoriteService: FavoriteService,
-    private router: Router
-  ) {}
+export class ResultCardComponent {
+  constructor(private router: Router) {}
 
   @Output() favoriteAdded: EventEmitter<Museums> = new EventEmitter<Museums>();
 
@@ -25,22 +21,12 @@ export class ResultCardComponent implements OnInit {
   selectedMuseum!: Museums;
   showDetails = false;
   favoriteMuseum!: Museums;
-  favoris!: Museums[];
-  favList: Museums[] = [];
-  session: any;
+  session!: string;
+  dataList: any[] = [];
+
   toggleDetails(selectedMuseum: Museums) {
     this.selectedMuseum = selectedMuseum;
     return this.selectedMuseum;
-  }
-
-  ngOnInit(): void {
-    this.favoriteService.getFavorites().subscribe((favoris) => {
-      this.favoris = favoris;
-    });
-  }
-
-  favoriteList() {
-    return this.favList;
   }
 
   addFavorite(favori: Museums): void {
@@ -53,33 +39,33 @@ export class ResultCardComponent implements OnInit {
       this.favoriteMuseum = favori;
       this.favoriteAdded.emit(this.favoriteMuseum);
       this.saveData(this.favoriteMuseum);
-      this.goToFavorites(this.favoriteMuseum);
+      this.goToFavorites();
     }
   }
-  goToFavorites(favoriteMuseum: any) {
+  goToFavorites() {
     this.router.navigate(["/favorite"]);
   }
-  removeFavorite(favori: Museums) {
-    const index = this.favList.findIndex((m) => m === favori);
-    if (index !== -1) {
-      this.favList.splice(index, 1);
-      favori.favorite = false;
+  saveData(favori: any) {
+    if (!this.dataList) {
+      this.dataList = [];
     }
-  }
-  saveData(favori: Museums) {
-    const data = {
+    const sessionData: any = localStorage.getItem("session");
+    if (sessionData) {
+      this.dataList = JSON.parse(sessionData);
+    }
+    console.log("Hello", favori);
+    this.dataList.push({
       id: favori.identifiant,
       nom_offre: favori.nom_offre,
       commune: favori.commune,
       site_web: favori.site_web,
-    };
-    localStorage.setItem("session", JSON.stringify(data));
+      recordid: favori.recordid,
+    });
+
+    localStorage.setItem("session", JSON.stringify(this.dataList));
   }
+
   toggleFavorite(museum: Museums) {
-    if (museum.favorite) {
-      this.removeFavorite(museum);
-    } else {
-      this.addFavorite(museum);
-    }
+    this.addFavorite(museum);
   }
 }

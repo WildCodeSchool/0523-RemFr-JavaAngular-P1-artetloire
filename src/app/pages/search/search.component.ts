@@ -83,7 +83,11 @@ export class searchComponent implements OnInit {
           museumData.fields.theme_musee &&
           museumData.fields.theme_musee.includes(newList)
         ) {
-          filteredMuseum.push(museumData.fields);
+          const museum: Museums = museumData.fields;
+          museum.recordid = museumData.recordid;
+          console.log("M", museum);
+
+          filteredMuseum.push(museum);
         }
       });
     }
@@ -98,7 +102,10 @@ export class searchComponent implements OnInit {
   getMuseumByName() {
     this.filteredMuseums = this.museumData
       .filter((museum) => {
-        const museumName = museum.fields.nom_offre.toLowerCase();
+        const museumFields = museum.fields;
+        // const museumId = museum.recordid;
+        const museumName = museumFields.nom_offre.toLowerCase();
+
         const searchQuery = this.museumName.toLowerCase();
 
         return museumName.substring(1).includes(searchQuery);
@@ -116,7 +123,9 @@ export class searchComponent implements OnInit {
         labelHandi == "Handicap auditif" ||
         labelHandi == "Handicap moteur"
       ) {
-        filteredMuseumLabelHandi.push(museumData.fields);
+        const museum: Museums = museumData.fields;
+        museum.recordid = museumData.recordid;
+        filteredMuseumLabelHandi.push(museum);
       }
     });
 
@@ -134,11 +143,10 @@ export class searchComponent implements OnInit {
     const filteredMuseumLabel: Museums[] = [];
 
     this.museumData.forEach((museumData) => {
-      if (
-        museumData.fields.labels &&
-        museumData.fields.labels.includes(label)
-      ) {
-        filteredMuseumLabel.push(museumData.fields);
+      const museum: Museums = museumData.fields;
+      museum.recordid = museumData.recordid;
+      if (museum.labels && museum.labels.includes(label)) {
+        filteredMuseumLabel.push(museum);
       }
     });
 

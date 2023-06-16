@@ -1,0 +1,75 @@
+.museums-container {
+  color: var(--black);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  width: 100%;
+}
+
+.museum-card {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.museum-image-container {
+  width: 16rem;
+  margin: 0.5rem;
+}
+
+.museum-details {
+  width: 45%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}
+.museum-name {
+  color: var(--turquoise);
+}
+.museum-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.museum-city {
+  color: var(--grey);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.supprimer {
+  height: 1rem;
+  background: transparent;
+  border: none;
+}
+.museum-site a {
+  color: var(--turquoise);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.museum-site a:hover {
+  text-decoration: underline;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  list-style: none;
+}
+.button {
+  display: flex;
+  justify-content: space-around;
+}
+.favButton {
+  color: var(--white);
+  background-color: var(--turquoise);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  a {
+    text-decoration: none;
+    color: var(--white);
+  }
+}
