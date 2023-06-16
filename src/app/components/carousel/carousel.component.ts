@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
   Index: number = 1;
-  Timeout: any = 0; // Change this you little piece of shit !
+  Timeout: any = 0;
 
   @Input()
   museumSample: any[] = [];
