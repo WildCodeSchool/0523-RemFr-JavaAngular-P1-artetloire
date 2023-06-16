@@ -15,7 +15,6 @@ export class ResultCardComponent implements OnInit {
   ) {}
 
   @Output() favoriteAdded: EventEmitter<Museums> = new EventEmitter<Museums>();
-  @Output() testEmit: EventEmitter<string> = new EventEmitter<string>();
 
   @Input() filteredMuseums: Museums[] = [];
   @Input() labelMuseums: Museums[] = [];
@@ -51,17 +50,11 @@ export class ResultCardComponent implements OnInit {
       if (this.favoriteMuseum) {
         this.favoriteMuseum.favorite = false;
       }
-      favori.favorite = true;
       this.favoriteMuseum = favori;
-      this.favList.push(this.favoriteMuseum);
-      this.test();
       this.favoriteAdded.emit(this.favoriteMuseum);
       this.saveData(this.favoriteMuseum);
       this.goToFavorites(this.favoriteMuseum);
     }
-  }
-  test() {
-    this.testEmit.emit("hello");
   }
   goToFavorites(favoriteMuseum: any) {
     this.router.navigate(["/favorite"]);
