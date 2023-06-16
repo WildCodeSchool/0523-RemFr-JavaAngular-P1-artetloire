@@ -5,8 +5,8 @@
                 <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             </button>
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
-            <button (click)="addFavorite(museum)">
-                {{ museum.favorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+            <button class="favori" (click)="toggleFavorite(museum)">
+                {{museum.favorite ? '❤' : '❤️' }}
             </button>
             <p class="museum-city">{{museum?.commune}}</p>
             <div class="details" *ngIf="showDetails ">
@@ -23,9 +23,10 @@
                 <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             </button>
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
-            <button (click)="addFavorite(museum)">
-                {{ museum.favorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+            <button class="favori" (click)="addFavorite(museum)">
+                {{ museum.favorite ? '❤' : '❤️' }}
             </button>
+
             <div class="details" *ngIf="selectedMuseum === museum">
                 <span class="museum-city">{{museum?.commune}}</span>
                 <div class="museum-site">
@@ -40,8 +41,8 @@
                 <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             </button>
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
-            <button (click)="addFavorite(museum)">
-                {{ museum.favorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+            <button class="favori" (click)="toggleFavorite(museum)">
+                {{ museum.favorite ? '❤' : '❤️' }}
             </button>
 
             <div class="details" *ngIf="selectedMuseum === museum">
@@ -58,11 +59,9 @@
                 <img class="museum-image" src="assets/images.jpg" alt="museum image" />
             </button>
             <h3 class="museum-name">{{museum?.nom_offre}}</h3>
-            <form (ngSubmit)="addFavorite(museum)">
-                <button (click)="addFavorite(museum)">
-                    {{ museum.favorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
-                </button>
-            </form>
+            <button class="favori" (click)="toggleFavorite(museum)">
+                {{ museum.favorite ? '❤' : '❤️' }}
+            </button>
             <div class="details" *ngIf="selectedMuseum === museum">
                 <span class="museum-city">{{museum?.commune}}</span>
                 <div class="museum-site">
@@ -71,9 +70,3 @@
             </div>
         </div>
     </div>
-    <ul>
-        <li *ngFor="let museum of favList">
-            {{ museum.nom_offre }}
-        </li>
-    </ul>
-</div>

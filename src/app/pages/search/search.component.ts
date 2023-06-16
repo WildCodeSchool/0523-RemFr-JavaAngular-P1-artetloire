@@ -161,4 +161,11 @@ export class searchComponent implements OnInit {
       );
     }
   }
+  favList: Museums[] = [];
+
+  handleFavoriteAdded(favorite: Museums): void {
+    if (!this.favList.includes(favorite)) {
+      this.favList.push(favorite);
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Museums } from "../models/museums";
 
 @Component({
@@ -6,18 +6,15 @@ import { Museums } from "../models/museums";
   templateUrl: "./favorite.component.html",
   styleUrls: ["./favorite.component.scss"],
 })
-export class FavoriteComponent {
-  updateFavorite: Museums[] = [];
-
-  handleFavoriteAdded(favorite: any): void {
-    console.log("Coucou");
-
-    if (!this.updateFavorite.includes(favorite)) {
-      this.updateFavorite.push(favorite);
-      console.log("Musée favori ajouté dans le parent :", this.updateFavorite);
-    }
+export class FavoriteComponent implements OnInit {
+  @Input() updateFavorite: Museums[] = [];
+  favorite: Museums[] = [];
+  session: any;
+  ngOnInit() {
+    this.loadData();
   }
-  testing(fi: string) {
-    alert(fi);
+  loadData() {
+    const data: any = localStorage.getItem("session");
+    this.session = JSON.parse(data);
   }
 }
