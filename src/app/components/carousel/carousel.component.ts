@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -29,13 +29,4 @@ export class CarouselComponent implements OnInit {
     this.Index = id;
     this.Carrousel();
   }
-
-  /*showMore() {
-    let more = document.querySelectorAll('.more');
-    for (let i = 0; i != more.length; i++) {
-      more[i].addEventListener('click', function(){
-        more[i].classList.toggle('active');
-      })
-    }
-  }*/
 }
