@@ -1,14 +1,17 @@
 <div class="modal-map">
   <div class="modal-int">
     <div class="modal-int-title">
-      <span>LE CARROI, MUSEE D'ARTS ET D'HISTOIRE</span>
+      <span>{{ museumInfo.nom }}</span>
     </div>
     <img
-      src="https://www.musees.strasbourg.eu/documents/30424/508640/MBA_2022_39.jpg/a5e7b146-97c8-5620-78aa-65797846eac0?t=1675247055686"
+      [src]="'../../../assets//images2/' + museumInfo.uuid + '.jpg'"
       alt="image_musée"
     />
     <div class="modal-int-adresse">
-      <span>Amboise, Rue François 1er</span>
+      <span
+        >{{ museumInfo.adresse }}, {{ museumInfo.codePostal }}
+        {{ museumInfo.ville }}</span
+      >
     </div>
     <div class="modal-int-horraire">
       <p>
@@ -20,12 +23,12 @@
         Samedi de 14h à 18h
       </p>
     </div>
-    <div class="modal-int-redirection">
-      <a
-        href="https://www.valdeloire-france.com/organiser/visites/musees-et-centres-dinterpretation/le-carroi-musee-darts-et-dhistoire"
-        >https://www.valdeloire-france.com/organiser/visites/musees-et-centres-dinterpretation/le-carroi-musee-darts-et-dhistoire</a
-      >
+    <div *ngIf="museumInfo.site" class="modal-int-redirection">
+      <a [href]="museumInfo.site">{{ museumInfo.site }}</a>
     </div>
-    <button (click)="close()">Close</button>
+    <div>
+      <button (click)="close()">Fermer</button>
+      <button (click)="addCard()">Ajouter</button>
+    </div>
   </div>
 </div>

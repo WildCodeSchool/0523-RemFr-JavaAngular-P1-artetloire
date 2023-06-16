@@ -12,7 +12,7 @@
 .modal-int {
     height: 65%;
     width: 70%;
-    background-color: #FCFCFC;
+    background-color: var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,21 +21,18 @@
 
 .modal-int-title {
     text-align: center;
-    font-size: 20px;
     width: 80%;
     margin-top: 0.75rem;
 }
 
 .modal-int-title > span {
-    color: #228b89;
+    color: var(--turquoise);
     font-weight: bold;
+    font-size: 20px;
 }
 
 .modal-int > img {
-    width: 12rem;
-    height: 6.5rem;
-    background-size: cover;
-    background-position: center;
+    max-height: 6.5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 15px;
@@ -44,14 +41,20 @@
 
 .modal-int-adresse {
     width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .modal-int-adresse > span {
     font-weight: bold;
+    font-size: 16px;
 }
 
 .modal-int-horraire {
     width: 70%;
+    font-weight: normal;
+    font-size: 16px;
 }
 
 .modal-int-redirection {
@@ -61,4 +64,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 1rem;
+}
+
+.modal-int-redirection > a {
+    font-size: 14px;
 }

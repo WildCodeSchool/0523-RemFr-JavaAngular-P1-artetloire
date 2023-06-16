@@ -2,10 +2,26 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { FavoriteComponent } from "./favorite/favorite.component";
 import { searchComponent } from "./pages/search/search.component";
+import { MapComponent } from "./pages/map/map.component";
 
 const routes: Routes = [
-  { path: "favoris", component: FavoriteComponent },
-  { path: "recherche", component: searchComponent },
+  {
+    path: "search",
+    component: searchComponent,
+  },
+  {
+    path: "map",
+    component: MapComponent,
+  },
+  {
+    path: "",
+    redirectTo: "search",
+    pathMatch: "full",
+  },
+  {
+    path: "favoris",
+    component: FavoriteComponent,
+  },
 ];
 
 @NgModule({

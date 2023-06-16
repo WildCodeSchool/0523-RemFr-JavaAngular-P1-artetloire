@@ -2,6 +2,8 @@
   <app-modal-map
     *ngIf="markerService.showModal"
     (closeModal)="closeModal()"
+    (cardInfo)="onCardInfo($event)"
+    [museumInfo]="markerService.museumInfo"
   ></app-modal-map>
   <div class="map-container">
     <div class="map-frame">
@@ -9,19 +11,64 @@
     </div>
   </div>
   <div class="musee-container">
-    <h3>Musées Seléctionnés</h3>
+    <div class="carte-container-all">
+      <div class="carte-container-title">
+        <h3>Musées Sélectionnés</h3>
+      </div>
+      <div class="carte-container">
+        <div class="left" *ngIf="addedCards.length >= 3">
+          <button (click)="onLeftButtonClick()"><</button>
+        </div>
+        <div class="carte-model-container">
+          <app-carousel-card
+            *ngFor="let card of addedCards"
+            class="carte-model"
+            [museumInfo]="card"
+          ></app-carousel-card>
+        </div>
+        <div class="right" *ngIf="addedCards.length >= 3">
+          <button (click)="onRightButtonClick()">></button>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="div_image_centrer">
     <button class="div_image" (click)="centerOnUser()">
       <img src="../../../assets/centrer.png" alt="bouton_recentrer" />
     </button>
   </div>
-  <div class="container-barre">
-    <div class="barre-recherche">
-      <input type="text" placeholder="Rechercher" [(ngModel)]="inputV" />
+  <div
+    class="container-barre"
+    [ngClass]="{ zi: filteredMuseum.length > 0 && inputV !== '' && isListOpen }"
+  >
+    <div
+      class="barre-recherche"
+      [ngClass]="{
+        br: filteredMuseum.length > 0 && inputV !== '' && isListOpen
+      }"
+    >
+      <input
+        type="text"
+        placeholder="Rechercher"
+        [(ngModel)]="inputV"
+        (input)="searchMuseum()"
+      />
       <button (click)="searchMuseum()">
         <img src="../../../assets/recherche.png" alt="logo_recherche" />
       </button>
     </div>
+    <ul
+      class="museum-list"
+      *ngIf="filteredMuseum.length > 0 && inputV !== '' && isListOpen"
+    >
+      <li
+        *ngFor="let museum of filteredMuseum"
+        (click)="selectMuseum(museum); isListOpen = false"
+        (keyup)="onKeyUp($event, museum)"
+        tabindex="0"
+      >
+        {{ museum }}
+      </li>
+    </ul>
   </div>
 </div>
