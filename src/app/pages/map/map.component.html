@@ -2,6 +2,7 @@
   <app-modal-map
     *ngIf="markerService.showModal"
     (closeModal)="closeModal()"
+    (cardInfo)="onCardInfo($event)"
     [museumInfo]="markerService.museumInfo"
   ></app-modal-map>
   <div class="map-container">
@@ -10,7 +11,26 @@
     </div>
   </div>
   <div class="musee-container">
-    <h3>Musées Seléctionnés</h3>
+    <div class="carte-container-all">
+      <div class="carte-container-title">
+        <h3>Musées Sélectionnés</h3>
+      </div>
+      <div class="carte-container">
+        <div class="left" *ngIf="addedCards.length >= 3">
+          <button (click)="onLeftButtonClick()"><</button>
+        </div>
+        <div class="carte-model-container">
+          <app-carousel-card
+            *ngFor="let card of addedCards"
+            class="carte-model"
+            [museumInfo]="card"
+          ></app-carousel-card>
+        </div>
+        <div class="right" *ngIf="addedCards.length >= 3">
+          <button (click)="onRightButtonClick()">></button>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="div_image_centrer">
     <button class="div_image" (click)="centerOnUser()">
