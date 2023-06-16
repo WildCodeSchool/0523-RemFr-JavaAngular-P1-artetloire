@@ -12,27 +12,6 @@ export class CarouselComponent implements OnInit {
   @Input()
   museumSample: any[] = [];
 
-  /*ngOnInit() {
-    this.Carrousel();
-  }
-
-  Carrousel() {
-    this.Timeout = setTimeout(() => {
-      document.getElementById('nav-' + this.Index)?.click();
-      this.Index++;
-      if (this.Index > document.getElementsByClassName("slider-element").length) {
-        this.Index = 1;
-      }
-      this.Carrousel();
-    }, 15000);
-  }
-
-  manualTravel(id: number) {
-    clearTimeout(this.Timeout);
-    this.Index = id;
-    this.Carrousel();
-  }*/
-
   ngOnInit() {
     this.startCarousel();
   }
@@ -47,18 +26,20 @@ export class CarouselComponent implements OnInit {
       if (this.Index > document.getElementsByClassName("slider-element").length) {
         this.Index = 1;
       }
-      this.manualTravel(this.Index);
+      this.manualClick(this.Index);
     }, 5000);
   }
 
-  manualTravel(id: number) {
+  manualClick(id: number, manual: boolean = false) {
     clearTimeout(this.Timeout);
     this.Index = id;
     const element = document.getElementById('slider-element-' + id);
     if (element) {
       const Yreset = window.scrollY;
-      element.scrollIntoView();
-      window.scrollTo(0, Yreset);
+      element.scrollIntoView({behavior: 'smooth'});
+      if (!manual) {
+        window.scrollTo(0, Yreset);
+      }
     }
     this.startCarousel();
   }

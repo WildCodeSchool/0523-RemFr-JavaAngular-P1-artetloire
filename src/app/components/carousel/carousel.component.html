@@ -6,7 +6,7 @@
     </div>
     <div class="slider-nav">
         <div class="nav-container">
-            <a *ngFor="let product of museumSample; index as i" id="nav-{{i + 1}}" (click)="manualTravel(i + 1)"></a>
+            <a *ngFor="let product of museumSample; index as i" id="nav-{{i + 1}}" (click)="manualClick(i + 1, true)" (tap)="manualClick(i + 1, true)"></a>
         </div>
     </div>
 </section>
@@ -16,7 +16,7 @@
             <h3>Art-&-Loire</h3>
             <!--Module Content Site description-->
             <p class="text">
-                Le site Art-&-Loire vous propose de visiter la grande variété de musée de notre département d'Indre-et-Loire. Avec pour
+                Le site <strong>Art-&-Loire</strong> vous propose de visiter la grande variété de musée de notre département d'Indre-et-Loire. Avec pour
                 objectif de promouvoir notre patrimoine local, nous avons répertorié l'ensemble des établissements présents sur notre
                 territoire dans le but de vous proposer un large panel de choix. Afin de vous aider dans votre démarche, nous mettons
                 à votre disposition un outil de recherche avancé afin de vous proposer les différents sites qui pourrait susciter votre
@@ -34,8 +34,8 @@
                 un travail de recherche supplémentaire. De même, nous enregistrerons vos visites déjà réalisées afin que vous puissiez
                 conserver un historique de vos voyages en Indre-et-Loire.
             </p>
-            <p>    
-                Besoin d'aide ? N'oubliez pas que vous pouvez consulter notre <b>Foire Aux Questions</b> ou nous soliciter par courriel.
+            <p class="text">    
+                Besoin d'aide ? N'oubliez pas que vous pouvez consulter notre <strong>Foire Aux Questions</strong> ou nous soliciter par courriel.
             </p>
             <!--Put link to FAQ page in <b> tag-->
         </div>
