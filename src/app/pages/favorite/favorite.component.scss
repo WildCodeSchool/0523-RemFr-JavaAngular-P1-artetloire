@@ -11,7 +11,7 @@
 }
 
 .museum-image-container {
-  width: 16rem;
+  width: 45%;
   margin: 0.5rem;
 }
 
@@ -20,6 +20,9 @@
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
+  button {
+    margin-top: 2rem;
+  }
 }
 .museum-name {
   color: var(--turquoise);
@@ -27,8 +30,20 @@
 .museum-image {
   height: 100%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   margin-bottom: 0.5rem;
+}
+.transition-left {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.fade-in.active {
+  opacity: 1;
 }
 
 .museum-city {
@@ -71,5 +86,10 @@ li {
   a {
     text-decoration: none;
     color: var(--white);
+  }
+}
+@media (max-width: 768px) {
+  .favButton {
+    display: none;
   }
 }

@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
 import { Museums } from "src/app/models/museums";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-result-card",
@@ -8,7 +9,7 @@ import { Museums } from "src/app/models/museums";
   styleUrls: ["./result-card.component.scss"],
 })
 export class ResultCardComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toastr: ToastrService) {}
 
   @Output() favoriteAdded: EventEmitter<Museums> = new EventEmitter<Museums>();
 
@@ -16,13 +17,13 @@ export class ResultCardComponent {
   @Input() labelMuseums: Museums[] = [];
   @Input() HandiLabelMuseums: Museums[] = [];
   @Input() themeMuseums: Museums[] = [];
-  @Input() item: any;
+  @Input() item!: string;
 
   selectedMuseum!: Museums;
   showDetails = false;
   favoriteMuseum!: Museums;
   session!: string;
-  dataList: any[] = [];
+  dataList: object[] = [];
 
   toggleDetails(selectedMuseum: Museums) {
     this.selectedMuseum = selectedMuseum;
@@ -30,7 +31,19 @@ export class ResultCardComponent {
   }
 
   addFavorite(favori: Museums): void {
-    if (favori.favorite) {
+    const sessionData: string | null = localStorage.getItem("session");
+    if (sessionData) {
+      this.dataList = JSON.parse(sessionData);
+      const isFavoriteInList = this.dataList.some((item: any) => {
+        return item.recordid === favori.recordid;
+      });
+      if (isFavoriteInList) {
+        this.toastr.error("Ce musée est déjà dans votre liste de favoris");
+
+        return;
+      }
+    }
+    if (favori.favorite !== favori.favorite) {
       this.favoriteMuseum;
     } else {
       if (this.favoriteMuseum) {
@@ -45,15 +58,14 @@ export class ResultCardComponent {
   goToFavorites() {
     this.router.navigate(["/favorite"]);
   }
-  saveData(favori: any) {
+  saveData(favori: Museums) {
     if (!this.dataList) {
       this.dataList = [];
     }
-    const sessionData: any = localStorage.getItem("session");
+    const sessionData: string | null = localStorage.getItem("session");
     if (sessionData) {
       this.dataList = JSON.parse(sessionData);
     }
-    console.log("Hello", favori);
     this.dataList.push({
       id: favori.identifiant,
       nom_offre: favori.nom_offre,

@@ -85,8 +85,6 @@ export class searchComponent implements OnInit {
         ) {
           const museum: Museums = museumData.fields;
           museum.recordid = museumData.recordid;
-          console.log("M", museum);
-
           filteredMuseum.push(museum);
         }
       });
@@ -100,17 +98,20 @@ export class searchComponent implements OnInit {
   }
 
   getMuseumByName() {
-    this.filteredMuseums = this.museumData
-      .filter((museum) => {
-        const museumFields = museum.fields;
-        // const museumId = museum.recordid;
-        const museumName = museumFields.nom_offre.toLowerCase();
-
-        const searchQuery = this.museumName.toLowerCase();
-
-        return museumName.substring(1).includes(searchQuery);
-      })
-      .map((museum) => museum.fields);
+    if (this.museumData) {
+      this.museumData.map((museumData) => {
+        const dataMuseum: Museums = museumData.fields;
+        dataMuseum.recordid = museumData.recordid;
+      });
+      this.filteredMuseums = this.museumData
+        .filter((museum) => {
+          const museumFields: Museums = museum.fields;
+          const museumName = museumFields.nom_offre.toLowerCase();
+          const searchQuery = this.museumName.toLowerCase();
+          return museumName.substring(1).includes(searchQuery);
+        })
+        .map((museum) => museum.fields);
+    }
   }
 
   getMuseumByLabelHandi(labelHandi: string): Museums[] {

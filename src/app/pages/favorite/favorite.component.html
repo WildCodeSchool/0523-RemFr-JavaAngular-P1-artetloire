@@ -1,7 +1,8 @@
 <p class="title">Vos musées favoris !</p>
 <div *ngIf="session">
     <div class="museums-container">
-        <li *ngFor="let item of session; let i = index">
+        <li [ngClass]="{'fade-in': shouldAnimate,'transition-left': shouldAnimate}"
+            *ngFor="let item of session; let i = index">
             <div class="museum-card">
                 <div class="museum-image-container">
                     <img class="museum-image" [src]="'/assets/images2/' + item.recordid + '.jpg'"
