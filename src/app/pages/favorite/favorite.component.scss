@@ -1,17 +1,22 @@
 .museums-container {
   color: var(--black);
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  width: 100%;
 }
-
+.count {
+  display: flex;
+  justify-content: center;
+  color: var(--turquoise);
+}
+.number {
+  margin: 0 0.3rem;
+  color: var(--black);
+}
 .museum-card {
   display: flex;
   justify-content: space-evenly;
 }
 
 .museum-image-container {
-  width: 45%;
+  width: 48%;
   margin: 0.5rem;
 }
 
@@ -32,18 +37,35 @@
   width: 100%;
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
+  object-fit: cover;
 }
 .transition-left {
   transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
+  animation: vanish 3s forwards;
 }
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
+.transition-right {
+  transform: translateX(0rem, 100%);
+  animation: appear 3s forwards;
 }
-
-.fade-in.active {
-  opacity: 1;
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes vanish {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }
 
 .museum-city {
@@ -89,7 +111,7 @@ li {
   }
 }
 @media (max-width: 768px) {
-  .favButton {
-    display: none;
-  }
+  // .favButton {
+  //   display: none;
+  // }
 }

@@ -20,7 +20,7 @@ export class FavoriteComponent implements OnInit {
   loadData() {
     const data: any = localStorage.getItem("session");
     this.session = JSON.parse(data);
-    this.shouldAnimate = false;
+    this.shouldAnimate = true;
   }
   clear() {
     localStorage.clear();
@@ -29,7 +29,10 @@ export class FavoriteComponent implements OnInit {
     this.shouldAnimate = false;
     setTimeout(() => {
       this.shouldAnimate = true;
-    }, 100);
+    }, 2000);
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
   removeItem(item: any) {
     const { commune, id, nom_offre, recordid, site_web } = item;

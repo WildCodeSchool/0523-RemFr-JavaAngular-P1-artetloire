@@ -19,14 +19,19 @@ export class ResultCardComponent {
   @Input() themeMuseums: Museums[] = [];
   @Input() item!: string;
 
-  selectedMuseum!: Museums;
+  selectedMuseum: Museums | null = null;
   showDetails = false;
   favoriteMuseum!: Museums;
   session!: string;
   dataList: object[] = [];
+  isOpen = false;
 
   toggleDetails(selectedMuseum: Museums) {
-    this.selectedMuseum = selectedMuseum;
+    if (this.selectedMuseum === selectedMuseum) {
+      this.selectedMuseum = null;
+    } else {
+      this.selectedMuseum = selectedMuseum;
+    }
     return this.selectedMuseum;
   }
 

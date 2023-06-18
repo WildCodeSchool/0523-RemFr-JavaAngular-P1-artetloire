@@ -1,7 +1,7 @@
 import { Museums } from "./museums";
 
 export class Api {
-  constructor(public records: Fields[], public recordid: string) {}
+  constructor(public records: Fields[]) {}
 }
 
 export class Fields {
