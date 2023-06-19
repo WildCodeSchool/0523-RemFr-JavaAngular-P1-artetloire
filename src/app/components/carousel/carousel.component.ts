@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  Index: number = 1;
-  Interval: number = 15000;
-  Timeout: any = 0; // Change this you little piece of shit !
+  private Index: number = 1;
+  private Interval: number = 15000;
+  private Timeout: any = 0;
 
   @Input()
   museumSample: any[] = [];
