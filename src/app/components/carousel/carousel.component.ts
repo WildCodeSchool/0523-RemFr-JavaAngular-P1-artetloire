@@ -7,7 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
   Index: number = 1;
-  Timeout: any = 0;
+  Interval: number = 15000;
+  Timeout: any = 0; // Change this you little piece of shit !
 
   @Input()
   museumSample: any[] = [];
@@ -27,7 +28,7 @@ export class CarouselComponent implements OnInit {
         this.Index = 1;
       }
       this.manualClick(this.Index);
-    }, 5000);
+    }, this.Interval);
   }
 
   manualClick(id: number, manual: boolean = false) {

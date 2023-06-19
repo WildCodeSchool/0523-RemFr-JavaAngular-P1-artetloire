@@ -4,7 +4,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { AccueilPageComponent } from './pages/accueil/accueil.component';
+import { HomePageComponent } from './pages/home/home.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MarkerService } from "./services/marker.service";
 
@@ -24,7 +24,7 @@ import { CarouselCardComponent } from "./components/carousel-card/carousel-card.
 @NgModule({
   declarations: [
     AppComponent,
-    AccueilPageComponent,
+    HomePageComponent,
     CarouselComponent,
     searchComponent,
     ResultCardComponent,

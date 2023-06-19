@@ -10,7 +10,7 @@ interface Museum {
 @Injectable({
   providedIn: 'root'
 })
-export class AccueilService {
+export class HomeService {
   private museumDataUrl =
     `https://data.centrevaldeloire.fr/api/records/1.0/search/?dataset=monuments-sites-musees-en-region-centre-val-de-loire&q=&rows=49&facet=departement&facet=type_equipement&facet=theme_musee&facet=labels&facet=acces_handicap&refine.departement=INDRE+ET+LOIRE&refine.type_equipement=Mus%C3%A9e`;
 
@@ -22,7 +22,7 @@ export class AccueilService {
         return res.records.map((record: any) => {
           return {
             uuid: record.recordid,
-            nom: record.fields.nom_offre
+            name: record.fields.nom_offre
           };
         });
       })

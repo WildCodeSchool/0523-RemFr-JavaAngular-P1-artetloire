@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AccueilPageComponent } from './pages/accueil/accueil.component';
+import { HomePageComponent } from './pages/home/home.component';
 import { FavoriteComponent } from "./favorite/favorite.component";
 import { searchComponent } from "./pages/search/search.component";
 import { MapComponent } from "./pages/map/map.component";
 
 const routes: Routes = [
   {
-    path: "home", component: AccueilPageComponent
+    path: "home", component: HomePageComponent
   },
   {
     path: "search", component: searchComponent

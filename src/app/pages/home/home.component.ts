@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AccueilService } from 'src/app/services/accueil.service';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
-  selector: 'app-accueil-page',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.scss']
+  selector: 'app-home-page',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AccueilPageComponent implements OnInit {
+export class HomePageComponent implements OnInit {
   museumList: any[] = [];
   museumSample: any[] = [];
 
-  constructor(private dataSet : AccueilService) {
+  constructor(private dataSet : HomeService) {
     
   }
 

@@ -1,7 +1,7 @@
 <section *ngIf="museumSample" class="container">
     <div class="slider-wrapper">
         <div class="slider">
-            <img *ngFor="let image of museumSample; index as i" id="slider-element-{{i + 1}}" class="slider-element" src="../../../assets/images2/{{image.uuid}}.jpg" alt="{{image.nom}}">
+            <img *ngFor="let image of museumSample; index as i" id="slider-element-{{i + 1}}" class="slider-element" src="../../../assets/images2/{{image.uuid}}.jpg" alt="{{image.name}}">
         </div>
     </div>
     <div class="slider-nav">
