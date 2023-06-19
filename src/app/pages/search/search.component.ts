@@ -23,6 +23,7 @@ export class searchComponent implements OnInit {
   HandiLabelMuseums: Museums[] = [];
   themeMuseums: Museums[] = [];
   showSeeMore = false;
+  animate = false;
 
   constructor(private searchService: searchService) {}
 
@@ -89,6 +90,10 @@ export class searchComponent implements OnInit {
         }
       });
     }
+    this.animate = true;
+    setTimeout(() => {
+      this.animate = false;
+    }, 5000);
     return filteredMuseum;
   }
 
@@ -111,6 +116,10 @@ export class searchComponent implements OnInit {
           return museumName.substring(1).includes(searchQuery);
         })
         .map((museum) => museum.fields);
+      this.animate = true;
+      setTimeout(() => {
+        this.animate = false;
+      }, 5000);
     }
   }
 
@@ -129,7 +138,10 @@ export class searchComponent implements OnInit {
         filteredMuseumLabelHandi.push(museum);
       }
     });
-
+    this.animate = true;
+    setTimeout(() => {
+      this.animate = false;
+    }, 5000);
     return filteredMuseumLabelHandi;
   }
 
@@ -150,7 +162,10 @@ export class searchComponent implements OnInit {
         filteredMuseumLabel.push(museum);
       }
     });
-
+    this.animate = true;
+    setTimeout(() => {
+      this.animate = false;
+    }, 5000);
     return filteredMuseumLabel;
   }
 

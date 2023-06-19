@@ -2,6 +2,14 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Museums } from "../../models/museums";
 import { ToastrService } from "ngx-toastr";
 
+type Item = {
+  commune: string;
+  id: number;
+  nom_offre: string;
+  recordid: string;
+  site_web: string;
+};
+
 @Component({
   selector: "app-favorite",
   templateUrl: "./favorite.component.html",
@@ -34,11 +42,11 @@ export class FavoriteComponent implements OnInit {
       location.reload();
     }, 1000);
   }
-  removeItem(item: any) {
+  removeItem(item: Item) {
     const { commune, id, nom_offre, recordid, site_web } = item;
 
     const index = this.session.findIndex(
-      (sessionItem: any) =>
+      (sessionItem: Item) =>
         sessionItem.commune === commune &&
         sessionItem.id === id &&
         sessionItem.nom_offre === nom_offre &&
@@ -49,7 +57,7 @@ export class FavoriteComponent implements OnInit {
     if (index !== -1) {
       this.session.splice(index, 1);
       localStorage.setItem("session", JSON.stringify(this.session));
-      localStorage.removeItem(item);
+      localStorage.removeItem(item.recordid);
     }
 
     this.toastr.success("Supprimé de vos musées favoris");
