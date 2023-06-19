@@ -54,7 +54,6 @@ export class MarkerService {
         marker.on("click", () => {
           this.showModal = true;
           this.museumInfo = museum;
-          console.log(this.museumInfo)
         });
       });
     });
