@@ -1,0 +1,61 @@
+<h2 class="title">Vos musées favoris !</h2>
+<div *ngIf="session.length > 0">
+  <p class="count">
+    Vous avez <span class="number"> {{ session.length }} </span> musée(s) dans
+    vos favoris
+  </p>
+  <div class="museums-container">
+    <ul>
+      <li
+        *ngFor="let item of session; let i = index"
+        [ngClass]="shouldAnimate ? 'transition-right' : 'transition-left'"
+      >
+        <div class="museum-card">
+          <div class="museum-image-container">
+            <img
+              class="museum-image"
+              [src]="'/assets/images2/' + item.recordid + '.jpg'"
+              alt="{{ item.nom_offre }}"
+            />
+          </div>
+          <div class="museum-details">
+            <p class="museum-name">{{ item.nom_offre }}</p>
+            <p class="museum-city">{{ item?.commune }}</p>
+            <div class="museum-site">
+              <a [href]="item?.site_web" target="_blank">{{
+                item?.site_web
+              }}</a>
+            </div>
+            <button (click)="removeItem(item)">
+              <img
+                class="supprimer"
+                [src]="'/assets/icon/poubelle.png'"
+                alt="supprimer"
+              />
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="button">
+    <button class="favButton" (click)="clear()">
+      <img
+        class="supprimer"
+        [src]="'/assets/icon/poubelle.png'"
+        alt="supprimer"
+      />
+      Supprimer les favoris
+    </button>
+    <button class="favButton">
+      <a routerLink="/">
+        <img
+          class="supprimer"
+          [src]="'/assets/icon/accueil.png'"
+          alt="accueil"
+        />
+        Retour à l'accueil
+      </a>
+    </button>
+  </div>
+</div>
