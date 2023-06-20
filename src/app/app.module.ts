@@ -1,10 +1,11 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+import { HomePageComponent } from './pages/home/home.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 import { MarkerService } from "./services/marker.service";
 
 import { MapComponent } from "./pages/map/map.component";
@@ -23,6 +24,8 @@ import { CarouselCardComponent } from "./components/carousel-card/carousel-card.
 @NgModule({
   declarations: [
     AppComponent,
+    HomePageComponent,
+    CarouselComponent,
     searchComponent,
     ResultCardComponent,
     MapComponent,
