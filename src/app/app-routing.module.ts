@@ -4,6 +4,7 @@ import { FavoriteComponent } from "./pages/favorite/favorite.component";
 import { HomePageComponent } from "./pages/home/home.component";
 import { searchComponent } from "./pages/search/search.component";
 import { MapComponent } from "./pages/map/map.component";
+import { SupportComponent } from "./pages/faq/support.component";
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
     path: "favorite",
     component: FavoriteComponent,
   },
+  {
+    path: "support",
+    component: SupportComponent
+  }
 ];
 
 @NgModule({
