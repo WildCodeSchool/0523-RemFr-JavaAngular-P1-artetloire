@@ -63,6 +63,7 @@ export class SupportComponent {
     if (this.userForm.valid) {
       console.log(`Email : ${this.userForm.value.email}`);
       console.log(`Message : ${this.userForm.value.message}`);
+      this.userForm.reset();
     }
   }
 }
