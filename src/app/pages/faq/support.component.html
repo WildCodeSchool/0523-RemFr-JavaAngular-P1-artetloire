@@ -6,16 +6,16 @@
     <div class="container-questions">
       <div *ngFor="let question of faqQuestion; let i = index">
         <div class="question-bar">
-          <button (click)="onClick(i)" [ngClass]="{ db: question.showQ }">
+          <button (click)="onClick(i)" [ngClass]="{ db: question.show }">
             V
           </button>
           <div>
-            <span>{{ question.titleQ }}</span>
+            <span>{{ question.title }}</span>
           </div>
         </div>
-        <div class="question-desc" *ngIf="question.showQ">
-          <span>{{ question.titleQ }}</span>
-          <p>{{ question.descQ }}</p>
+        <div class="question-desc" *ngIf="question.show">
+          <span>{{ question.title }}</span>
+          <p>{{ question.desc }}</p>
         </div>
       </div>
     </div>

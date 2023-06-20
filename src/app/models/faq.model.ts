@@ -1,7 +1,7 @@
 export class Faq {
     constructor(
-        public titleQ: string,
-        public descQ: string,
-        public showQ: boolean
+        public title: string,
+        public desc: string,
+        public show: boolean
     ) { }
 }
