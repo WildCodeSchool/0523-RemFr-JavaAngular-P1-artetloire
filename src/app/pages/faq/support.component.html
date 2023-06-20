@@ -1,0 +1,52 @@
+<div class="container-faq-contact">
+  <div class="first-faq-div">
+    <div class="question-title">
+      <span>Questions populaires :</span>
+    </div>
+    <div class="container-questions">
+      <div *ngFor="let question of faqQuestion; let i = index">
+        <div class="question-bar">
+          <button (click)="onClick(i)" [ngClass]="{ db: question.showQ }">
+            V
+          </button>
+          <div>
+            <span>{{ question.titleQ }}</span>
+          </div>
+        </div>
+        <div class="question-desc" *ngIf="question.showQ">
+          <span>{{ question.titleQ }}</span>
+          <p>{{ question.descQ }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="div-hr">
+    <hr />
+  </div>
+  <div class="second-faq-div">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="title-form">
+        <span>Nous contacter :</span>
+      </div>
+      <div class="lab-inp">
+        <input
+          type="email"
+          placeholder="example@gmail.fr"
+          formControlName="email"
+        />
+      </div>
+      <div class="lab-inp">
+        <textarea
+          placeholder="message ..."
+          formControlName="message"
+        ></textarea>
+      </div>
+      <div class="button-send" *ngIf="userForm.valid">
+        <span>Envoyer : </span>
+        <button>
+          <img src="../../../assets/icon/arrow.png" alt="icon_envoyer" />
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
