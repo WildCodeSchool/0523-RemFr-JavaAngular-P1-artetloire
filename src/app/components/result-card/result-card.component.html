@@ -1,72 +1,97 @@
 <div class="result-card">
-    <div *ngFor="let museum of themeMuseums">
-        <div class="museums-container">
-            <button class="museum-image" (click)="toggleDetails(museum)">
-                <img class="museum-image" src="assets/images.jpg" alt="museum image" />
-            </button>
-            <h3 class="museum-name">{{museum?.nom_offre}}</h3>
-            <button class="favori" (click)="toggleFavorite(museum)">
-                {{museum.favorite ? '❤' : '❤️' }}
-            </button>
-            <p class="museum-city">{{museum?.commune}}</p>
-            <div class="details" *ngIf="showDetails ">
-                <span class="museum-city">{{museum?.commune}}</span>
-                <div class="museum-site">
-                    <a [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
-                </div>
-            </div>
+  <div *ngFor="let museum of themeMuseums">
+    <div class="museums-container">
+      <button class="museum-image" (click)="toggleDetails(museum)">
+        <img
+          class="museum-image"
+          [src]="'/assets/images2/' + museum.recordid + '.jpg'"
+          alt="{{ museum.nom_offre }}"
+        />
+      </button>
+      <h3 class="museum-name">{{ museum?.nom_offre }}</h3>
+      <button class="favori" (click)="toggleFavorite(museum)">
+        {{ museum.favorite ? "❤" : "❤️" }}
+      </button>
+      <p class="museum-city">{{ museum?.commune }}</p>
+      <div class="details" *ngIf="showDetails">
+        <span class="museum-city">{{ museum?.commune }}</span>
+        <div class="museum-site">
+          <a [href]="museum?.site_web" target="_blank">{{
+            museum?.site_web
+          }}</a>
         </div>
+      </div>
     </div>
-    <div *ngFor="let museum of filteredMuseums">
-        <div class="museums-container">
-            <button class="museum-image" (click)="toggleDetails(museum)">
-                <img class="museum-image" src="assets/images.jpg" alt="museum image" />
-            </button>
-            <h3 class="museum-name">{{museum?.nom_offre}}</h3>
-            <button class="favori" (click)="addFavorite(museum)">
-                {{ museum.favorite ? '❤' : '❤️' }}
-            </button>
+  </div>
+  <div *ngFor="let museum of filteredMuseums">
+    <div class="museums-container">
+      <button class="museum-image" (click)="toggleDetails(museum)">
+        <img
+          class="museum-image"
+          [src]="'/assets/images2/' + museum.recordid + '.jpg'"
+          alt="{{ museum.nom_offre }}"
+        />
+      </button>
+      <h3 class="museum-name">{{ museum?.nom_offre }}</h3>
+      <button class="favori" (click)="addFavorite(museum)">
+        {{ museum.favorite ? "❤" : "❤️" }}
+      </button>
 
-            <div class="details" *ngIf="selectedMuseum === museum">
-                <span class="museum-city">{{museum?.commune}}</span>
-                <div class="museum-site">
-                    <a [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
-                </div>
-            </div>
+      <div class="details" *ngIf="selectedMuseum === museum">
+        <span class="museum-city">{{ museum?.commune }}</span>
+        <div class="museum-site">
+          <a [href]="museum?.site_web" target="_blank">{{
+            museum?.site_web
+          }}</a>
         </div>
+      </div>
     </div>
-    <div *ngFor="let museum of labelMuseums">
-        <div class="museums-container">
-            <button class="museum-image" (click)="toggleDetails(museum)">
-                <img class="museum-image" src="assets/images.jpg" alt="museum image" />
-            </button>
-            <h3 class="museum-name">{{museum?.nom_offre}}</h3>
-            <button class="favori" (click)="toggleFavorite(museum)">
-                {{ museum.favorite ? '❤' : '❤️' }}
-            </button>
+  </div>
+  <div *ngFor="let museum of labelMuseums">
+    <div class="museums-container">
+      <button class="museum-image" (click)="toggleDetails(museum)">
+        <img
+          class="museum-image"
+          [src]="'/assets/images2/' + museum.recordid + '.jpg'"
+          alt="{{ museum.nom_offre }}"
+        />
+      </button>
+      <h3 class="museum-name">{{ museum?.nom_offre }}</h3>
+      <button class="favori" (click)="toggleFavorite(museum)">
+        {{ museum.favorite ? "❤" : "❤️" }}
+      </button>
 
-            <div class="details" *ngIf="selectedMuseum === museum">
-                <span class="museum-city">{{museum?.commune}}</span>
-                <div class="museum-site">
-                    <a [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
-                </div>
-            </div>
+      <div class="details" *ngIf="selectedMuseum === museum">
+        <span class="museum-city">{{ museum?.commune }}</span>
+        <div class="museum-site">
+          <a [href]="museum?.site_web" target="_blank">{{
+            museum?.site_web
+          }}</a>
         </div>
+      </div>
     </div>
-    <div *ngFor="let museum of HandiLabelMuseums">
-        <div class="museums-container">
-            <button class="museum-image" (click)="toggleDetails(museum)">
-                <img class="museum-image" src="assets/images.jpg" alt="museum image" />
-            </button>
-            <h3 class="museum-name">{{museum?.nom_offre}}</h3>
-            <button class="favori" (click)="toggleFavorite(museum)">
-                {{ museum.favorite ? '❤' : '❤️' }}
-            </button>
-            <div class="details" *ngIf="selectedMuseum === museum">
-                <span class="museum-city">{{museum?.commune}}</span>
-                <div class="museum-site">
-                    <a [href]="museum?.site_web" target="_blank">{{museum?.site_web}}</a>
-                </div>
-            </div>
+  </div>
+  <div *ngFor="let museum of HandiLabelMuseums">
+    <div class="museums-container">
+      <button class="museum-image" (click)="toggleDetails(museum)">
+        <img
+          class="museum-image"
+          [src]="'/assets/images2/' + museum.recordid + '.jpg'"
+          alt="{{ museum.nom_offre }}"
+        />
+      </button>
+      <h3 class="museum-name">{{ museum?.nom_offre }}</h3>
+      <button class="favori" (click)="toggleFavorite(museum)">
+        {{ museum.favorite ? "❤" : "❤️" }}
+      </button>
+      <div class="details" *ngIf="selectedMuseum === museum">
+        <span class="museum-city">{{ museum?.commune }}</span>
+        <div class="museum-site">
+          <a [href]="museum?.site_web" target="_blank">{{
+            museum?.site_web
+          }}</a>
         </div>
+      </div>
     </div>
+  </div>
+</div>

@@ -18,7 +18,7 @@ import { ResultCardComponent } from "./components/result-card/result-card.compon
 
 import { CommonModule } from "@angular/common";
 import { ToastrModule } from "ngx-toastr";
-import { FavoriteComponent } from "./favorite/favorite.component";
+import { FavoriteComponent } from "./pages/favorite/favorite.component";
 import { CarouselCardComponent } from "./components/carousel-card/carousel-card.component";
 
 @NgModule({
