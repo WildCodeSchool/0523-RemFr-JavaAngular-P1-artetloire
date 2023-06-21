@@ -1,0 +1,71 @@
+.modal-map {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-int {
+    height: 65%;
+    width: 70%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:  10px 10px 30px #919191, -10px -10px 30px #ffffff;
+}
+
+.modal-int-title {
+    text-align: center;
+    width: 80%;
+    margin-top: 0.75rem;
+}
+
+.modal-int-title > span {
+    color: var(--turquoise);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.modal-int > img {
+    max-height: 6.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    box-shadow:  3px 3px 9px #919191, -3px -3px 9px #ffffff;
+}
+
+.modal-int-adresse {
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-int-adresse > span {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.modal-int-horraire {
+    width: 70%;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.modal-int-redirection {
+    width: 70%;
+    height: 1.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 1rem;
+}
+
+.modal-int-redirection > a {
+    font-size: 14px;
+}

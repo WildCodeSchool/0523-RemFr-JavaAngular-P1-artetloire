@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600&display=swap%22");
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: var(--inter);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+:root {
+  --inter: "Inter", sans-serif;
+  --white: #fcfcfc;
+  --black: #151515;
+  --grey: #444444;
+  --lightgrey: #646464;
+  --turquoise: #228b89;
+  --blue_second: #11aeab;
+  --blue_third: #00d1cd;
+}

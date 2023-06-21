@@ -1,10 +1,17 @@
+nav {
+  background-color: #228b89;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 nav ul {
   display: flex;
   list-style: none;
-  padding: 0.3rem 0;
+  padding: 0;
   justify-content: space-around;
-  background-color: #228b89;
-}
+  margin: 0.3rem 0;}
 
 li a {
   display: flex;
