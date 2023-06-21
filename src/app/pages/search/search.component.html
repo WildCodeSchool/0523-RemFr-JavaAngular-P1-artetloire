@@ -42,13 +42,13 @@
     </select>
   </div>
   <div class="Result">
-    <div class="result-card">
+    <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
       <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
     </div>
-    <div class="result-card">
+    <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
       <app-result-card [filteredMuseums]="HandiLabelMuseums"></app-result-card>
     </div>
-    <div class="result-card">
+    <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
       <app-result-card [labelMuseums]="labelMuseums"></app-result-card>
     </div>
   </div>
@@ -68,7 +68,7 @@
       <img src="assets/recherche.png" alt="Loupe" />
     </button>
   </div>
-  <div class="result-card">
+  <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
     <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>
   </div>
 </div>
