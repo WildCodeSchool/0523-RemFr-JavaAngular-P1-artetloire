@@ -7,6 +7,7 @@ import { MapComponent } from "./pages/map/map.component";
 import { SupportComponent } from "./pages/faq/support.component";
 
 const routes: Routes = [
+
   {
     path: "home",
     component: HomePageComponent,
@@ -21,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "search",
+    redirectTo: "home",
     pathMatch: "full",
   },
   {
