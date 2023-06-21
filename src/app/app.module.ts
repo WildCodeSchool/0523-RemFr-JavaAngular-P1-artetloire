@@ -25,6 +25,7 @@ import { ToastrModule } from "ngx-toastr";
 import { FavoriteComponent } from "./pages/favorite/favorite.component";
 import { CarouselCardComponent } from "./components/carousel-card/carousel-card.component";
 import { SupportComponent } from "./pages/faq/support.component";
+import { MenuBurgerComponent } from './components/menu-burger/menu-burger.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SupportComponent } from "./pages/faq/support.component";
     ModalMapComponent,
     FavoriteComponent,
     CarouselCardComponent,
-    SupportComponent
+    SupportComponent,
+    MenuBurgerComponent
   ],
   imports: [
     BrowserModule,
