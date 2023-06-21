@@ -1,0 +1,34 @@
+nav {
+  background-color: #228b89;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: space-around;
+  margin: 0.3rem 0;}
+
+li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fcfcfc;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+.nav-icons {
+  display: inline-block;
+  max-width: 32px;
+  max-height: 32px;
+}

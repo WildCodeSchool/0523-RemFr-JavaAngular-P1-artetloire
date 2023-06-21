@@ -1,0 +1,10 @@
+<nav>
+  <ul>
+    <li *ngFor="let menu of menus">
+      <a [routerLink]="menu.link">
+        <img class="nav-icons" [src]="menu.picto" [alt]="menu.name">
+        <span>{{ menu.name }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>
