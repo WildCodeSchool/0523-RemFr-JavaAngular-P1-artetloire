@@ -19,7 +19,6 @@ export class ModalMapComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.modalWidth = this.modalMapRef.nativeElement.offsetWidth;
-    console.log(this.modalWidth);
   }
 
   close(): void {
