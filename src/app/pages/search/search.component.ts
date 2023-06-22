@@ -28,6 +28,8 @@ export class searchComponent implements OnInit {
   favList: Museums[] = [];
   visitList: Museums[] = [];
   selectedTheme!: string;
+  selectedLabel!: string;
+  selectedLabelHandi!: string;
   constructor(private searchService: searchService) {}
 
   ngOnInit() {
@@ -150,7 +152,7 @@ export class searchComponent implements OnInit {
   }
 
   onLabelHandiChange() {
-    this.selectedTheme = this.museumLabelHandi;
+    this.selectedLabelHandi = this.museumLabelHandi;
     this.HandiLabelMuseums = this.getMuseumByLabelHandi(
       this.museumLabelHandi
     ).slice(0, 2);
@@ -175,7 +177,7 @@ export class searchComponent implements OnInit {
   }
 
   onLabelChange() {
-    this.selectedTheme = this.museumLabel;
+    this.selectedLabel = this.museumLabel;
     this.labelMuseums = this.getMuseumByLabel(this.museumLabel).slice(0, 2);
     this.showSeeMore = true;
   }

@@ -1,3 +1,6 @@
+.all {
+  padding-bottom: 3rem;
+}
 .museums-container {
   color: var(--black);
   ul {
@@ -8,6 +11,7 @@
   display: flex;
   justify-content: center;
   color: var(--turquoise);
+  margin-left: 1rem;
 }
 .number {
   margin: 0 0.3rem;
@@ -34,7 +38,6 @@
     width: 10rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
   }
   .museum-name {
     color: var(--turquoise);
@@ -71,7 +74,6 @@
     padding-left: 1.2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
   }
   .museum-name {
     color: var(--turquoise);
@@ -120,7 +122,7 @@
 
 .museum-city {
   color: var(--grey);
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   font-size: 0.9rem;
 }
 button {
@@ -150,7 +152,9 @@ button {
   padding: 0.3rem;
   font-size: 1.2rem;
 }
-
+.museum-info-column {
+  margin: 0.3rem;
+}
 li {
   list-style: none;
 }

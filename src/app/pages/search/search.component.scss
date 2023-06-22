@@ -47,7 +47,9 @@ option {
 input[type="text"]::placeholder {
   color: var(--white);
 }
-
+.filter-container {
+  margin-bottom: 3rem;
+}
 .filter-container select:first-of-type {
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
@@ -56,13 +58,6 @@ input[type="text"]::placeholder {
 .filter-container select:last-child {
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
-}
-
-.name-search-title {
-  display: flex;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .name-search {
