@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-carousel-card',
@@ -7,4 +7,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CarouselCardComponent  {
   @Input() museumInfo: any;
+
+  @Output() openModalEvent = new EventEmitter<any>();
+
+  openModal(): void {
+    this.openModalEvent.emit(this.museumInfo);
+  }
 }

@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path: "support",
     component: SupportComponent
+  },
+  {
+    path: "**",
+    redirectTo: "home"
   }
 ];
 

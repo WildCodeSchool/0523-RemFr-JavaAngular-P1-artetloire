@@ -144,4 +144,9 @@ export class MapComponent implements AfterViewInit, OnInit {
   onCardInfo(museumInfo: any): void {
     this.addedCards.push(museumInfo);
   }
+
+  openModal(museum: any): void {
+    this.markerService.showModal = true;
+    this.markerService.museumInfo = museum;
+  }
 }
