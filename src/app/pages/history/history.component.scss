@@ -89,34 +89,6 @@
     }
   }
 }
-.transition-left {
-  transform: translateX(-100%);
-  animation: vanish 3s forwards;
-}
-.transition-right {
-  transform: translateX(0rem, 100%);
-  animation: appear 3s forwards;
-}
-@keyframes appear {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes vanish {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-}
 
 .museum-city {
   color: var(--grey);

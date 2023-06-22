@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Museums } from "src/app/models/museums";
 
@@ -15,13 +16,11 @@ type Item = {
   styleUrls: ["./history.component.scss"],
 })
 export class HistoryComponent implements OnInit {
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService, private router: Router) {}
 
   @Input() updateWithFavorite: Museums[] = [];
 
   historyMuseums: Museums[] = [];
-  shouldAnimate = false;
-  i = false;
   history: Item[] = [];
   ngOnInit() {
     this.loadDataHistory();
@@ -29,19 +28,17 @@ export class HistoryComponent implements OnInit {
   loadDataHistory() {
     const dataHistory: any = localStorage.getItem("history");
     this.history = JSON.parse(dataHistory);
-    this.shouldAnimate = true;
   }
   clear() {
     localStorage.clear();
     this.history = [];
     this.toastr.success("Votre liste de musées visités est vide :(");
-    this.shouldAnimate = false;
     setTimeout(() => {
-      this.shouldAnimate = true;
-    }, 2000);
-    setTimeout(() => {
-      location.reload();
+      this.redirectToHomePage();
     }, 1000);
+  }
+  redirectToHomePage() {
+    this.router.navigate(["home"]);
   }
   removeVisited(visitedMuseums: Item) {
     const { commune, id, nom_offre, recordid, site_web } = visitedMuseums;
@@ -62,5 +59,8 @@ export class HistoryComponent implements OnInit {
     }
 
     this.toastr.success("Supprimé de vos musées visités");
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
 }

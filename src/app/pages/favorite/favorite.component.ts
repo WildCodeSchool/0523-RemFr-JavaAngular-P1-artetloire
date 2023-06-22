@@ -68,5 +68,8 @@ export class FavoriteComponent implements OnInit {
     }
 
     this.toastr.success("Supprimé de vos musées favoris");
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
 }
