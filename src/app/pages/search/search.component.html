@@ -40,6 +40,11 @@
       </option>
     </select>
   </div>
+  <div class="selected" *ngIf="selectedTheme">
+    <p>
+      Thème sélectionné : <span class="color">{{ selectedTheme }}</span>
+    </p>
+  </div>
   <div class="Result">
     <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
       <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
@@ -67,7 +72,7 @@
       <img src="assets/recherche.png" alt="Loupe" />
     </button>
   </div>
-  <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
-    <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>
+  <div class="result-card" [ngClass]="{ 'transition-right': animate }">
+    <app-result-card [filteredMuseums]="nameMuseums"></app-result-card>
   </div>
 </div>

@@ -1,0 +1,183 @@
+.museums-container {
+  color: var(--black);
+  ul {
+    padding: 0.5rem;
+  }
+}
+.count {
+  display: flex;
+  justify-content: center;
+  color: var(--turquoise);
+}
+.number {
+  margin: 0 0.3rem;
+  color: var(--black);
+}
+.right-layout {
+  display: flex;
+  flex-direction: row-reverse;
+  .museum-card {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    height: 16rem;
+    width: 22rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .museum-image-container {
+    width: 11rem;
+  }
+
+  .museum-details {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .museum-name {
+    color: var(--turquoise);
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  .museum-image {
+    height: 13rem;
+    width: 11rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+    button {
+      margin-top: 2rem;
+    }
+  }
+}
+.left-layout {
+  .museum-card {
+    display: flex;
+    justify-content: space-evenly;
+    height: 16rem;
+    width: 22rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .museum-image-container {
+    width: 10rem;
+  }
+
+  .museum-details {
+    width: 10rem;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .museum-name {
+    color: var(--turquoise);
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  .museum-image {
+    height: 13rem;
+    width: 11rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+    button {
+      margin-top: 2rem;
+    }
+  }
+}
+.transition-left {
+  transform: translateX(-100%);
+  animation: vanish 3s forwards;
+}
+.transition-right {
+  transform: translateX(0rem, 100%);
+  animation: appear 3s forwards;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes vanish {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.museum-city {
+  color: var(--grey);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+button {
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .supprimer {
+    height: 1rem;
+    cursor: pointer;
+  }
+}
+.museum-site a {
+  color: var(--turquoise);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.museum-site a:hover {
+  text-decoration: underline;
+}
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.3rem;
+  font-size: 1.2rem;
+}
+
+li {
+  list-style: none;
+}
+.button {
+  display: flex;
+  justify-content: space-around;
+}
+.historyButton {
+  color: var(--white);
+  background-color: var(--turquoise);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  a {
+    text-decoration: none;
+    color: var(--white);
+  }
+}
+.removeButton {
+  color: var(--white);
+  background-color: var(--turquoise);
+  border-radius: 2rem;
+  font-weight: bold;
+  margin: 2rem;
+  padding: 1.3rem;
+}
+@media (max-width: 768px) {
+  .historyButton {
+    display: none;
+  }
+}

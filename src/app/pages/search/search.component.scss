@@ -7,7 +7,6 @@
   padding-left: 2rem;
   font-size: 1.5rem;
 }
-
 .filter-container {
   display: flex;
   align-items: center;
@@ -17,6 +16,7 @@
     font-size: 1.5rem;
   }
 }
+
 select,
 option {
   appearance: none;
@@ -61,7 +61,7 @@ input[type="text"]::placeholder {
 .name-search-title {
   display: flex;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -105,6 +105,20 @@ button:active {
 .transition-bottom {
   transform: translateY(-100%);
   animation: appear 5s forwards;
+}
+.transition-right {
+  transform: translateX(0rem, 100%);
+  animation: appear2 3s forwards;
+}
+@keyframes appear2 {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes appear {
@@ -151,6 +165,16 @@ button:active {
 
     .filter-option {
       font-size: 1rem;
+    }
+  }
+}
+.selected {
+  p {
+    width: 20rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    .color {
+      color: var(--turquoise);
     }
   }
 }

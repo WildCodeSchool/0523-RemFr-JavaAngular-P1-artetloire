@@ -4,8 +4,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { HomePageComponent } from './pages/home/home.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { HomePageComponent } from "./pages/home/home.component";
+import { CarouselComponent } from "./components/carousel/carousel.component";
 import { MarkerService } from "./services/marker.service";
 
 import { MapComponent } from "./pages/map/map.component";
@@ -23,6 +23,7 @@ import { ToastrModule } from "ngx-toastr";
 import { FavoriteComponent } from "./pages/favorite/favorite.component";
 import { CarouselCardComponent } from "./components/carousel-card/carousel-card.component";
 import { SupportComponent } from "./pages/faq/support.component";
+import { HistoryComponent } from "./pages/history/history.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SupportComponent } from "./pages/faq/support.component";
     ModalMapComponent,
     FavoriteComponent,
     CarouselCardComponent,
-    SupportComponent
+    SupportComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { SupportComponent } from "./pages/faq/support.component";
     FormsModule,
     CommonModule,
     ToastrModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent],

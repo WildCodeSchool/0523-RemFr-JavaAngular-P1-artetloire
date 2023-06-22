@@ -1,4 +1,4 @@
-<h2 class="title">Vos musées favoris !</h2>
+<h2 class="title">Vos futures visites !</h2>
 <div *ngIf="session.length > 0">
   <p class="count">
     Vous avez <span class="number"> {{ session.length }} </span> musée(s) dans
@@ -19,20 +19,22 @@
             />
           </div>
           <div class="museum-details">
-            <p class="museum-name">{{ item.nom_offre }}</p>
+            <div>
+              <p class="museum-name">{{ item.nom_offre }}</p>
+            </div>
             <p class="museum-city">{{ item?.commune }}</p>
             <div class="museum-site">
-              <a [href]="item?.site_web" target="_blank">{{
-                item?.site_web
-              }}</a>
+              <a [href]="item?.site_web" target="_blank">@Visitez leur site </a>
             </div>
-            <button (click)="removeItem(item)">
-              <img
-                class="supprimer"
-                [src]="'/assets/icon/poubelle.png'"
-                alt="supprimer"
-              />
-            </button>
+            <div>
+              <button (click)="removeItem(item)">
+                <img
+                  class="addtohistory"
+                  [src]="'/assets/icon/addtohistory.png'"
+                  alt="supprimer"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </li>

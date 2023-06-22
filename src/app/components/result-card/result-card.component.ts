@@ -12,6 +12,7 @@ export class ResultCardComponent {
   constructor(private router: Router, private toastr: ToastrService) {}
 
   @Output() favoriteAdded: EventEmitter<Museums> = new EventEmitter<Museums>();
+  @Output() historyAdded: EventEmitter<Museums> = new EventEmitter<Museums>();
 
   @Input() filteredMuseums: Museums[] = [];
   @Input() labelMuseums: Museums[] = [];
@@ -22,8 +23,10 @@ export class ResultCardComponent {
   selectedMuseum: Museums | null = null;
   showDetails = false;
   favoriteMuseum!: Museums;
+  MuseuminHistory!: Museums;
   session!: string;
   dataList: object[] = [];
+  historyList: object[] = [];
   isOpen = false;
 
   toggleDetails(selectedMuseum: Museums) {
@@ -56,21 +59,51 @@ export class ResultCardComponent {
       }
       this.favoriteMuseum = favori;
       this.favoriteAdded.emit(this.favoriteMuseum);
-      this.saveData(this.favoriteMuseum);
+      this.saveFavoriteData(this.favoriteMuseum);
       this.goToFavorites();
     }
   }
   goToFavorites() {
     this.router.navigate(["/favorite"]);
   }
-  saveData(favori: Museums) {
+
+  addHistory(historyMuseums: Museums): void {
+    const historyData: string | null = localStorage.getItem("history");
+
+    if (historyData) {
+      this.historyList = JSON.parse(historyData);
+      const isHistoryInList = this.historyList.some((item: any) => {
+        return item.recordid === historyMuseums.recordid;
+      });
+
+      if (isHistoryInList) {
+        this.toastr.error("Ce musée est déjà dans votre historique");
+
+        return;
+      }
+    }
+    if (!historyMuseums.visited) {
+      historyMuseums.visited = false;
+    }
+    this.MuseuminHistory = historyMuseums;
+    this.historyAdded.emit(this.MuseuminHistory);
+    this.saveHistoryData(this.MuseuminHistory);
+    this.goToHistory();
+  }
+
+  goToHistory() {
+    this.router.navigate(["/history"]);
+  }
+  saveFavoriteData(favori: Museums) {
     if (!this.dataList) {
       this.dataList = [];
     }
+
     const sessionData: string | null = localStorage.getItem("session");
     if (sessionData) {
       this.dataList = JSON.parse(sessionData);
     }
+
     this.dataList.push({
       id: favori.identifiant,
       nom_offre: favori.nom_offre,
@@ -81,8 +114,25 @@ export class ResultCardComponent {
 
     localStorage.setItem("session", JSON.stringify(this.dataList));
   }
+  saveHistoryData(historyMuseums: Museums) {
+    if (!this.historyList) {
+      this.historyList = [];
+    }
+
+    const historyData: string | null = localStorage.getItem("history");
+    if (historyData) {
+      this.historyList = JSON.parse(historyData);
+    }
+
+    this.historyList.push(historyMuseums);
+    localStorage.setItem("history", JSON.stringify(this.historyList));
+  }
 
   toggleFavorite(museum: Museums) {
     this.addFavorite(museum);
+  }
+
+  toggleHistory(visited: Museums) {
+    this.addHistory(visited);
   }
 }

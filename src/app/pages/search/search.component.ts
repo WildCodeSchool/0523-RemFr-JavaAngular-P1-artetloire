@@ -19,12 +19,15 @@ export class searchComponent implements OnInit {
   labelOptions!: string[];
   labelHandiOptions!: string[];
   filteredMuseums: Museums[] = [];
+  nameMuseums: Museums[] = [];
   labelMuseums: Museums[] = [];
   HandiLabelMuseums: Museums[] = [];
   themeMuseums: Museums[] = [];
   showSeeMore = false;
   animate = false;
-
+  favList: Museums[] = [];
+  visitList: Museums[] = [];
+  selectedTheme!: string;
   constructor(private searchService: searchService) {}
 
   ngOnInit() {
@@ -98,6 +101,7 @@ export class searchComponent implements OnInit {
   }
 
   onThemeChange() {
+    this.selectedTheme = this.museumTheme;
     this.themeMuseums = this.getMuseumByTheme(this.museumTheme).slice(0, 2);
     this.showSeeMore = true;
   }
@@ -108,7 +112,7 @@ export class searchComponent implements OnInit {
         const dataMuseum: Museums = museumData.fields;
         dataMuseum.recordid = museumData.recordid;
       });
-      this.filteredMuseums = this.museumData
+      this.nameMuseums = this.museumData
         .filter((museum) => {
           const museumFields: Museums = museum.fields;
           const museumName = museumFields.nom_offre.toLowerCase();
@@ -146,6 +150,7 @@ export class searchComponent implements OnInit {
   }
 
   onLabelHandiChange() {
+    this.selectedTheme = this.museumLabelHandi;
     this.HandiLabelMuseums = this.getMuseumByLabelHandi(
       this.museumLabelHandi
     ).slice(0, 2);
@@ -170,6 +175,7 @@ export class searchComponent implements OnInit {
   }
 
   onLabelChange() {
+    this.selectedTheme = this.museumLabel;
     this.labelMuseums = this.getMuseumByLabel(this.museumLabel).slice(0, 2);
     this.showSeeMore = true;
   }
@@ -185,11 +191,16 @@ export class searchComponent implements OnInit {
       );
     }
   }
-  favList: Museums[] = [];
 
   handleFavoriteAdded(favorite: Museums): void {
     if (!this.favList.includes(favorite)) {
       this.favList.push(favorite);
+    }
+  }
+
+  handleMuseumsVisitedAdded(visitedMuseums: Museums): void {
+    if (!this.visitList.includes(visitedMuseums)) {
+      this.visitList.push(visitedMuseums);
     }
   }
 }
