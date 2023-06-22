@@ -1,0 +1,117 @@
+.museums-container {
+  color: var(--black);
+}
+.count {
+  display: flex;
+  justify-content: center;
+  color: var(--turquoise);
+}
+.number {
+  margin: 0 0.3rem;
+  color: var(--black);
+}
+.museum-card {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.museum-image-container {
+  width: 48%;
+  margin: 0.5rem;
+}
+
+.museum-details {
+  width: 45%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  button {
+    margin-top: 2rem;
+  }
+}
+.museum-name {
+  color: var(--turquoise);
+}
+.museum-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+.transition-left {
+  transform: translateX(-100%);
+  animation: vanish 3s forwards;
+}
+.transition-right {
+  transform: translateX(0rem, 100%);
+  animation: appear 3s forwards;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes vanish {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.museum-city {
+  color: var(--grey);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.supprimer {
+  height: 1rem;
+  background: transparent;
+  border: none;
+}
+.museum-site a {
+  color: var(--turquoise);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.museum-site a:hover {
+  text-decoration: underline;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  list-style: none;
+}
+.button {
+  display: flex;
+  justify-content: space-around;
+}
+.favButton {
+  color: var(--white);
+  background-color: var(--turquoise);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  a {
+    text-decoration: none;
+    color: var(--white);
+  }
+}
+@media (max-width: 768px) {
+  // .favButton {
+  //   display: none;
+  // }
+}

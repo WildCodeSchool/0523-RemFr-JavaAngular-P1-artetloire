@@ -8,11 +8,14 @@
   padding: 1rem;
   background-color: var(--white);
   border-radius: 0.5rem;
+  border-color: transparent;
 
   .museum-image {
     width: 100%;
     height: 15rem;
     border-radius: 0.3rem;
+    border-color: transparent;
+    cursor: pointer;
   }
   .favori {
     border: none;
@@ -20,7 +23,7 @@
     position: relative;
     bottom: 5rem;
     left: 8rem;
-    font-size: 30px;
+    font-size: 2rem;
   }
   .museum-name {
     background: #444444b6;
@@ -39,7 +42,8 @@
 
   .museum-city {
     font-family: var(--inter);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--turquoise);
     line-height: 1.8rem;
     margin-top: 0.5rem;
     display: flex;
@@ -64,6 +68,7 @@
     background-color: red;
   }
 }
+
 @media (max-width: 768px) {
   .museums-container {
     padding: 1rem;

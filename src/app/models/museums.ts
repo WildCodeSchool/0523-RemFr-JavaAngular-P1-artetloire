@@ -1,5 +1,6 @@
 export class Museums {
   constructor(
+    public recordid: string,
     public id: string,
     public nom_offre: string,
     public duree_visite_individuel_en_h: string,
@@ -25,6 +26,7 @@ export class Museums {
     public activite_sur_place: string,
     public telephone: string,
     public label_tourisme_handicap: string,
-    public favorite: boolean
+    public favorite: boolean,
+    public isOpen: boolean
   ) {}
 }

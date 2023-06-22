@@ -1,0 +1,169 @@
+.container-faq-contact {
+    width: 100%;
+    height: 100vh;
+}
+
+.first-faq-div {
+    width: 100%;
+    height: 49%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.question-title {
+    width: 90%;
+    height: 10%;
+}
+
+.question-title > span {
+    font-size: 22px;
+}
+
+.container-questions {
+    width: 90%;
+    height: 80%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.question-bar {
+    width: 100%;
+    background-color: var(--turquoise);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+}
+
+.question-bar > button {
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+    font-weight: bolder;
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+    margin: 0.75rem 0.75rem;
+    cursor: pointer;
+}
+
+.question-bar > div {
+    width: 80%;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.question-bar > button.db {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.question-desc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-desc > p {
+    font-size: 16px;
+    margin: 0rem 2rem;
+    margin-bottom: 1rem;
+    font-weight: lighter;
+}
+
+.question-desc > span {
+    font-size: 18px;
+    margin: 1rem 2rem;
+}
+
+.div-hr {
+    width: 100%;
+    height: 2%;
+}
+
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+.second-faq-div {
+    width: 100%;
+    height: 49%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 90%;
+}
+
+.title-form {
+    width: 100%;
+    margin: 0.5rem 0rem;
+}
+
+.title-form > span {
+    font-size: 22px;
+}
+
+.lab-inp {
+    width: 100%;
+}
+
+.lab-inp > input, .lab-inp > textarea {
+    width: calc(100% - (0.75rem * 2));
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--turquoise);
+    color: var(--white);
+    font-size: 16px;
+    margin: 0.5rem 0rem;
+}
+
+.lab-inp > textarea {
+    height: 6rem;
+}
+
+.lab-inp > input::placeholder, .lab-inp > textarea::placeholder {
+    color: rgb(220, 220, 220);
+}
+
+.button-send {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.button-send > button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.button-send > button > img {
+    width: 1.5rem;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

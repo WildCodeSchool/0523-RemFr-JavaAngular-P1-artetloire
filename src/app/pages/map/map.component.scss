@@ -129,7 +129,7 @@
 }
 
 .map-frame {
-    height: 72%;
+    height: 67%;
 }
 
 #map {
@@ -140,7 +140,7 @@
     background-color: var(--white);
     position: relative;
     z-index: 10;
-    height: 30%;
+    height: 35%;
     text-align: center;
 }
 
@@ -184,6 +184,7 @@
     font-weight: bolder;
     font-size: 20px;
     border: none;
+    margin-bottom: 4rem;
 }
 
 .carte-model-container {
