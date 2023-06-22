@@ -19,6 +19,25 @@
     box-shadow:  10px 10px 30px #919191, -10px -10px 30px #ffffff;
 }
 
+.close-div {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.close-div > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.close-div > button > img {
+    width: 2rem;
+}
+
 .modal-int-title {
     text-align: center;
     width: 80%;
@@ -54,7 +73,7 @@
 .modal-int-horraire {
     width: 70%;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .modal-int-redirection {
@@ -68,4 +87,14 @@
 
 .modal-int-redirection > a {
     font-size: 14px;
+}
+
+.div_button_add > button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.div_button_add > button > img {
+    width: 2rem;
 }

@@ -5,5 +5,5 @@ export class Api {
 }
 
 export class Fields {
-  constructor(public fields: Museums) {}
+  constructor(public fields: Museums, public recordid: string) {}
 }

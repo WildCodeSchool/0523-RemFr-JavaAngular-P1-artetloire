@@ -1,18 +1,15 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
 import { Museums } from "src/app/models/museums";
-import { FavoriteService } from "src/app/services/favorite.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-result-card",
   templateUrl: "./result-card.component.html",
   styleUrls: ["./result-card.component.scss"],
 })
-export class ResultCardComponent implements OnInit {
-  constructor(
-    private favoriteService: FavoriteService,
-    private router: Router
-  ) {}
+export class ResultCardComponent {
+  constructor(private router: Router, private toastr: ToastrService) {}
 
   @Output() favoriteAdded: EventEmitter<Museums> = new EventEmitter<Museums>();
 
@@ -20,31 +17,38 @@ export class ResultCardComponent implements OnInit {
   @Input() labelMuseums: Museums[] = [];
   @Input() HandiLabelMuseums: Museums[] = [];
   @Input() themeMuseums: Museums[] = [];
-  @Input() item: any;
+  @Input() item!: string;
 
-  selectedMuseum!: Museums;
+  selectedMuseum: Museums | null = null;
   showDetails = false;
   favoriteMuseum!: Museums;
-  favoris!: Museums[];
-  favList: Museums[] = [];
-  session: any;
+  session!: string;
+  dataList: object[] = [];
+  isOpen = false;
+
   toggleDetails(selectedMuseum: Museums) {
-    this.selectedMuseum = selectedMuseum;
+    if (this.selectedMuseum === selectedMuseum) {
+      this.selectedMuseum = null;
+    } else {
+      this.selectedMuseum = selectedMuseum;
+    }
     return this.selectedMuseum;
   }
 
-  ngOnInit(): void {
-    this.favoriteService.getFavorites().subscribe((favoris) => {
-      this.favoris = favoris;
-    });
-  }
-
-  favoriteList() {
-    return this.favList;
-  }
-
   addFavorite(favori: Museums): void {
-    if (favori.favorite) {
+    const sessionData: string | null = localStorage.getItem("session");
+    if (sessionData) {
+      this.dataList = JSON.parse(sessionData);
+      const isFavoriteInList = this.dataList.some((item: any) => {
+        return item.recordid === favori.recordid;
+      });
+      if (isFavoriteInList) {
+        this.toastr.error("Ce musée est déjà dans votre liste de favoris");
+
+        return;
+      }
+    }
+    if (favori.favorite !== favori.favorite) {
       this.favoriteMuseum;
     } else {
       if (this.favoriteMuseum) {
@@ -53,33 +57,32 @@ export class ResultCardComponent implements OnInit {
       this.favoriteMuseum = favori;
       this.favoriteAdded.emit(this.favoriteMuseum);
       this.saveData(this.favoriteMuseum);
-      this.goToFavorites(this.favoriteMuseum);
+      this.goToFavorites();
     }
   }
-  goToFavorites(favoriteMuseum: any) {
+  goToFavorites() {
     this.router.navigate(["/favorite"]);
   }
-  removeFavorite(favori: Museums) {
-    const index = this.favList.findIndex((m) => m === favori);
-    if (index !== -1) {
-      this.favList.splice(index, 1);
-      favori.favorite = false;
-    }
-  }
   saveData(favori: Museums) {
-    const data = {
+    if (!this.dataList) {
+      this.dataList = [];
+    }
+    const sessionData: string | null = localStorage.getItem("session");
+    if (sessionData) {
+      this.dataList = JSON.parse(sessionData);
+    }
+    this.dataList.push({
       id: favori.identifiant,
       nom_offre: favori.nom_offre,
       commune: favori.commune,
       site_web: favori.site_web,
-    };
-    localStorage.setItem("session", JSON.stringify(data));
+      recordid: favori.recordid,
+    });
+
+    localStorage.setItem("session", JSON.stringify(this.dataList));
   }
+
   toggleFavorite(museum: Museums) {
-    if (museum.favorite) {
-      this.removeFavorite(museum);
-    } else {
-      this.addFavorite(museum);
-    }
+    this.addFavorite(museum);
   }
 }

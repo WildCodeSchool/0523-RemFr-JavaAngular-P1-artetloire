@@ -1,12 +1,14 @@
 <section *ngIf="museumSample" class="container">
     <div class="slider-wrapper">
         <div class="slider">
-            <img *ngFor="let image of museumSample; index as i" id="slider-element-{{i + 1}}" class="slider-element" src="../../../assets/images2/{{image.uuid}}.jpg" alt="{{image.name}}">
+            <div class="slider-element" *ngFor="let image of museumSample; let i = index">
+                <img id="slider-element-{{i + 1}}" src="../../../assets/images2/{{image.uuid}}.jpg" alt="{{image.name}}">
+            </div>
         </div>
     </div>
     <div class="slider-nav">
         <div class="nav-container">
-            <a *ngFor="let product of museumSample; index as i" id="nav-{{i + 1}}" (click)="manualClick(i + 1, true)" (tap)="manualClick(i + 1, true)"></a>
+            <span *ngFor="let item of museumSample; let i = index" [class.active]="i === Index" (click)="goToSlide(i)" (tap)="goToSlide(i)"></span>
         </div>
     </div>
 </section>
@@ -15,26 +17,23 @@
         <div class="text-container">
             <h3>Art-&-Loire</h3>
             <p class="text">
-                Le site <strong>Art-&-Loire</strong> vous propose de visiter la grande variété de musée de notre département d'Indre-et-Loire. Avec pour
-                objectif de promouvoir notre patrimoine local, nous avons répertorié l'ensemble des établissements présents sur notre
-                territoire dans le but de vous proposer un large panel de choix. Afin de vous aider dans votre démarche, nous mettons
-                à votre disposition un outil de recherche avancé afin de vous proposer les différents sites qui pourrait susciter votre
-                intérêt grâce à un catalogue de mots-clés.
+                Le site <strong>Art-&-Loire</strong> vous propose de visiter la grande variété de musée de notre département
+                d'Indre-et-Loire. Avec pour objectif de promouvoir notre patrimoine local, nous avons répertorié l'ensemble des
+                établissements présents sur notre territoire dans le but de vous proposer un large panel de choix.
             </p>
             <p class="text">    
                 Si vous savez déjà quel musée vous souhaitez visiter, notre site sera à même de vous fournir plusieurs informations
-                relatives à ce lieu. Vous pourrez ainsi vous tenir informés quant aux différentes modalités d'accès : adresse, 
-                horaires d'ouverture, accessibilité handicapé, etc... Un système de géolocalisation sera également mis à votre
-                disposition pour vous aider à localiser votre destination ou préparer un itinéraire.
+                relatives à ce lieu. Vous pourrez ainsi vous tenir informés quant aux différentes modalités d'accès : adresse et 
+                géolocalisation, horaires d'ouverture, accessibilité handicapé, etc...
             </p>
             <p class="text">    
-                Pour vous aider à garder une trace de votre passage, nous avons penser à ceux qui prévoierait leur(s) visite(s) à
-                l'avance en vous offrant la possibilité d'enregistrer les vistes que vous prévoyez à l'avenir afin de vous épargner
-                un travail de recherche supplémentaire. De même, nous enregistrerons vos visites déjà réalisées afin que vous puissiez
-                conserver un historique de vos voyages en Indre-et-Loire.
+                Nous avons également penser à ceux qui prévoirait leur(s) visite(s) à l'avance en vous offrant la possibilité
+                d'enregistrer vos potentielles visites. De même, nous enregistrerons vos visites déjà réalisées afin que vous
+                puissiez conserver un historique de vos voyages en Indre-et-Loire.
             </p>
             <p class="text">    
-                Besoin d'aide ? N'oubliez pas que vous pouvez consulter notre <strong>Foire Aux Questions</strong> ou nous soliciter par courriel.
+                Besoin d'aide ? N'oubliez pas que vous pouvez consulter notre <strong>Foire Aux Questions</strong> ou nous solliciter
+                par courriel.
             </p>
         </div>
     </div>
