@@ -73,7 +73,7 @@ export class ResultCardComponent {
     if (historyData) {
       this.historyList = JSON.parse(historyData);
       const isHistoryInList = this.historyList.some((item: any) => {
-        return item.recordid === historyMuseums.recordid;
+        return item?.recordid === historyMuseums.recordid;
       });
 
       if (isHistoryInList) {
