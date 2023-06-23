@@ -32,12 +32,16 @@ const routes: Routes = [
   },
   {
     path: "support",
-    component: SupportComponent,
+    component: SupportComponent
+  },
+  {
+    path: "**",
+    redirectTo: "home"
   },
   {
     path: "history",
     component: HistoryComponent,
-  },
+  }
 ];
 
 @NgModule({

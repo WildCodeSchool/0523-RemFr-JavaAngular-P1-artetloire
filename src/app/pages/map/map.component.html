@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-menu-burger></app-menu-burger>
 <div class="container-all">
   <app-modal-map
     *ngIf="markerService.showModal"
@@ -25,6 +25,8 @@
             *ngFor="let card of addedCards"
             class="carte-model"
             [museumInfo]="card"
+            (openModalEvent)="openModal($event)"
+            (removeFavoriteEvent)="removeFavorite($event)"
           ></app-carousel-card>
         </div>
         <div class="right" *ngIf="addedCards.length >= 3">
