@@ -22,6 +22,8 @@ export class FavoriteComponent implements OnInit {
   favorite: Museums[] = [];
   shouldAnimate = false;
   session: any;
+  element: any;
+
   ngOnInit() {
     this.loadData();
   }
@@ -68,6 +70,34 @@ export class FavoriteComponent implements OnInit {
     }
 
     this.toastr.success("Supprimé de vos musées favoris");
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
+  }
+  removeAllFav(element: any) {
+    const historyData: any = localStorage.getItem("history");
+    const history: Item[] = historyData ? JSON.parse(historyData) : [];
+
+    for (const sessionItem of this.session) {
+      if (
+        sessionItem.commune === element?.commune &&
+        sessionItem.id === element?.id &&
+        sessionItem.nom_offre === element?.nom_offre &&
+        sessionItem.recordid === element?.recordid &&
+        sessionItem.site_web === element?.site_web
+      ) {
+        history.push(sessionItem);
+      }
+    }
+    history.push(...this.session);
+    localStorage.setItem("history", JSON.stringify(history));
+
+    this.session.length = 0;
+
+    localStorage.setItem("session", JSON.stringify(this.session));
+
+    this.toastr.success("L'ensemble des musées est visité");
+
     setTimeout(() => {
       location.reload();
     }, 1000);

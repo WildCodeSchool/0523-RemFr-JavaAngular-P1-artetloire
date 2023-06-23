@@ -13,13 +13,13 @@
           <div class="museum-image-container">
             <img
               class="museum-image"
-              [src]="'/assets/images2/' + item.recordid + '.jpg'"
-              alt="{{ item.nom_offre }}"
+              [src]="'/assets/images2/' + item?.recordid + '.jpg'"
+              alt="{{ item?.nom_offre }}"
             />
           </div>
           <div class="museum-details">
             <div>
-              <p class="museum-name">{{ item.nom_offre }}</p>
+              <p class="museum-name">{{ item?.nom_offre }}</p>
             </div>
             <div class="museum-info">
               <div class="museum-info-column">

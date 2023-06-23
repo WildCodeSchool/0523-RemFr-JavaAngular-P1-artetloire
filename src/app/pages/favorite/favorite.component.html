@@ -1,3 +1,4 @@
+<app-menu-burger></app-menu-burger>
 <h2 class="title">Vos futures visites !</h2>
 <div class="all" *ngIf="session && session.length > 0">
   <p class="count">
@@ -41,23 +42,13 @@
     </ul>
   </div>
   <div class="button">
-    <button class="favButton" (click)="clear()">
+    <button class="favButton" (click)="removeAllFav(element)">
       <img
         class="supprimer"
         [src]="'/assets/icon/poubelle.png'"
         alt="supprimer"
       />
-      Supprimer les favoris
-    </button>
-    <button class="favButton">
-      <a routerLink="/">
-        <img
-          class="supprimer"
-          [src]="'/assets/icon/accueil.png'"
-          alt="accueil"
-        />
-        Retour à l'accueil
-      </a>
+      Marquer tout comme "Visités"
     </button>
   </div>
 </div>

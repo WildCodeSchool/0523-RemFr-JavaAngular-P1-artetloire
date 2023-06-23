@@ -99,6 +99,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  .supprimer {
+    height: 1rem;
+    cursor: pointer;
+  }
 }
 .museum-site a {
   color: var(--turquoise);
@@ -127,15 +131,11 @@ li {
 .favButton {
   color: var(--white);
   background-color: var(--turquoise);
-  border-radius: 0.5rem;
+  border-radius: 3rem;
   font-weight: bold;
+  padding: 0.5rem 1.3rem;
   a {
     text-decoration: none;
     color: var(--white);
-  }
-}
-@media (max-width: 768px) {
-  .favButton {
-    display: none;
   }
 }
