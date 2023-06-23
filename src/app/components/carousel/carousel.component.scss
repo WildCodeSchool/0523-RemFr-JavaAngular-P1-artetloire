@@ -100,6 +100,11 @@
         strong {
             font-weight: 900;
             color: #228B89;
+            a {
+                text-decoration: none;
+                color: #228B89;
+                cursor: pointer;
+            }
         }
     }
 }
