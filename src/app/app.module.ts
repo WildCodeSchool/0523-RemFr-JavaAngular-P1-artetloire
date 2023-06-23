@@ -5,7 +5,6 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { NavigationComponent } from "./components/navigation/navigation.component";
-import { HeaderComponent } from "./components/header/header.component";
 import { HomePageComponent } from "./pages/home/home.component";
 import { CarouselComponent } from "./components/carousel/carousel.component";
 import { MarkerService } from "./services/marker.service";
@@ -25,13 +24,13 @@ import { ToastrModule } from "ngx-toastr";
 import { FavoriteComponent } from "./pages/favorite/favorite.component";
 import { CarouselCardComponent } from "./components/carousel-card/carousel-card.component";
 import { SupportComponent } from "./pages/faq/support.component";
+import { MenuBurgerComponent } from './components/menu-burger/menu-burger.component';
 import { HistoryComponent } from "./pages/history/history.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    HeaderComponent,
     HomePageComponent,
     CarouselComponent,
     searchComponent,
@@ -41,6 +40,7 @@ import { HistoryComponent } from "./pages/history/history.component";
     FavoriteComponent,
     CarouselCardComponent,
     SupportComponent,
+    MenuBurgerComponent,
     HistoryComponent,
   ],
   imports: [
