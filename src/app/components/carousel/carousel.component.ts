@@ -1,47 +1,60 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, Inject } from '@angular/core';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { HammerConfig } from './hammer-config';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.scss']
+  styleUrls: ['./carousel.component.scss'],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig
+    }
+  ]
 })
-export class CarouselComponent implements OnInit {
-  private Index: number = 1;
-  private Interval: number = 15000;
+export class CarouselComponent implements OnInit, OnDestroy {
+  public Index: number = 1;
+  private Interval: number = 8000;
   private Timeout: any = 0;
 
   @Input()
   museumSample: any[] = [];
 
-  ngOnInit() {
-    this.startCarousel();
+  constructor(@Inject(HAMMER_GESTURE_CONFIG) private hammerConfig: HammerGestureConfig){
+
   }
 
-  ngOnDestroy() {
+  ngOnInit(): void {
+    this.startAutoSlide();
+  }
+
+  ngOnDestroy(): void {
     clearTimeout(this.Timeout);
   }
 
-  startCarousel() {
+  startAutoSlide(): void {
     this.Timeout = setTimeout(() => {
-      this.Index++;
-      if (this.Index > document.getElementsByClassName("slider-element").length) {
-        this.Index = 1;
-      }
-      this.manualClick(this.Index);
+      this.Index = (this.Index + 1) % this.museumSample.length;
+      this.slideToCurrentIndex();
+      this.startAutoSlide();
     }, this.Interval);
   }
 
-  manualClick(id: number, manual: boolean = false) {
+  stopAutoSlide(): void {
     clearTimeout(this.Timeout);
-    this.Index = id;
-    const element = document.getElementById('slider-element-' + id);
-    if (element) {
-      const Yreset = window.scrollY;
-      element.scrollIntoView({behavior: 'smooth'});
-      if (!manual) {
-        window.scrollTo(0, Yreset);
-      }
-    }
-    this.startCarousel();
+  }
+
+  goToSlide(index: number): void {
+    this.stopAutoSlide();
+    this.Index = index;
+    this.slideToCurrentIndex();
+    this.startAutoSlide();
+  }
+
+  slideToCurrentIndex(): void {
+    const sliderElement: HTMLElement = document.querySelector('.slider') as HTMLElement;
+    const slideWidth = sliderElement.offsetWidth;
+    sliderElement.style.transform = `translateX(-${slideWidth * this.Index}px)`;
   }
 }

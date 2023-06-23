@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
     
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataSet.getAll().subscribe((museums: any[]) => {
       this.museumList = museums;
   

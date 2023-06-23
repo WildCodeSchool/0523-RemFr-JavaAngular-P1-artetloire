@@ -4,7 +4,7 @@ import { Observable, map } from 'rxjs';
 
 interface Museum {
   uuid: string;
-  nom: string;
+  name: string;
 }
 
 @Injectable({
