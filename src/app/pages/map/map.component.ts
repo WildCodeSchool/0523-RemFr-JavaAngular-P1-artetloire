@@ -59,7 +59,7 @@ export class MapComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.getLocation().subscribe(pos => {
-      console.log(pos);
+      return pos;
     });
     this.markerService.getAllMuseumData().subscribe((museums: any[]) => {
       this.museumAll = museums;
