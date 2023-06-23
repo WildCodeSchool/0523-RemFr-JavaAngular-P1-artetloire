@@ -57,9 +57,19 @@ export class FavoriteComponent implements OnInit {
     if (index !== -1) {
       this.session.splice(index, 1);
       localStorage.setItem("session", JSON.stringify(this.session));
-      localStorage.removeItem(item.recordid);
+
+      const historyData: any = localStorage.getItem("history");
+      const history: Item[] = historyData ? JSON.parse(historyData) : [];
+
+      history.push(item);
+      localStorage.setItem("history", JSON.stringify(history));
+
+      localStorage.removeItem(recordid);
     }
 
     this.toastr.success("Supprimé de vos musées favoris");
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
 }

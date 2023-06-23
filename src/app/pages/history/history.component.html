@@ -1,0 +1,69 @@
+<h2 class="title">L'historique de vos musées !</h2>
+<div class="all" *ngIf="history && history.length > 0">
+  <p class="count">
+    Vous avez visité<span class="number"> {{ history.length }} </span> musée(s)
+  </p>
+  <div class="museums-container">
+    <ul>
+      <li
+        *ngFor="let item of history; let i = index"
+        [ngClass]="i % 2 === 0 ? 'left-layout' : 'right-layout'"
+      >
+        <div class="museum-card">
+          <div class="museum-image-container">
+            <img
+              class="museum-image"
+              [src]="'/assets/images2/' + item.recordid + '.jpg'"
+              alt="{{ item.nom_offre }}"
+            />
+          </div>
+          <div class="museum-details">
+            <div>
+              <p class="museum-name">{{ item.nom_offre }}</p>
+            </div>
+            <div class="museum-info">
+              <div class="museum-info-column">
+                <p class="museum-city">{{ item?.commune }}</p>
+                <div class="museum-site">
+                  <a [href]="item?.site_web" target="_blank"
+                    >@Plus d'informations</a
+                  >
+                </div>
+              </div>
+              <div class="museum-info-column">
+                <button (click)="removeVisited(item)">
+                  <img
+                    class="supprimer"
+                    [src]="'/assets/icon/poubelle.png'"
+                    alt="supprimer"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="button">
+    <button class="removeButton" (click)="clear()">
+      <img
+        class="supprimer"
+        [src]="'/assets/icon/poubelle.png'"
+        alt="supprimer"
+      />
+      Effacer votre historique
+    </button>
+    <button class="historyButton">
+      <a routerLink="/">
+        <img
+          class="supprimer"
+          [src]="'/assets/icon/accueil.png'"
+          alt="accueil"
+        />
+        Retour à l'accueil
+      </a>
+    </button>
+  </div>
+</div>
+<app-navigation></app-navigation>
