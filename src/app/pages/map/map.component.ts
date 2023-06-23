@@ -59,7 +59,7 @@ export class MapComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.getLocation().subscribe(pos => {
-      console.log(pos);
+      return pos;
     });
     this.markerService.getAllMuseumData().subscribe((museums: any[]) => {
       this.museumAll = museums;
@@ -143,5 +143,28 @@ export class MapComponent implements AfterViewInit, OnInit {
 
   onCardInfo(museumInfo: any): void {
     this.addedCards.push(museumInfo);
+  }
+
+  openModal(museum: any): void {
+    this.markerService.showModal = true;
+    this.markerService.museumInfo = museum;
+  }
+
+  getFavoritesFromLocalStorage(): any[] {
+    const sessionData: string | null = localStorage.getItem('session');
+    return sessionData ? JSON.parse(sessionData) : [];
+  }
+
+  removeFavorite(museum: any): void {
+    const sessionData: string | null = localStorage.getItem('session');
+    if (sessionData) {
+      let dataList: any[] = JSON.parse(sessionData);
+      dataList = dataList.filter((item: any) => item.recordid !== museum.uuid);
+      localStorage.setItem('session', JSON.stringify(dataList));
+      const index = this.addedCards.findIndex((card: any) => card.uuid === museum.uuid);
+      if (index !== -1) {
+        this.addedCards.splice(index, 1);
+      }
+    }
   }
 }
