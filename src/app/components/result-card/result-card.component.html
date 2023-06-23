@@ -9,9 +9,6 @@
         />
       </button>
       <h3 class="museum-name">{{ museum?.nom_offre }}</h3>
-      <button class="favori" (click)="toggleFavorite(museum)">
-        {{ museum.favorite ? "❤" : "❤️" }}
-      </button>
       <p class="museum-city">{{ museum?.commune }}</p>
       <div class="details" *ngIf="showDetails">
         <span class="museum-city">{{ museum?.commune }}</span>
@@ -25,6 +22,13 @@
   </div>
   <div *ngFor="let museum of filteredMuseums">
     <div class="museums-container">
+      <button class="history" (click)="toggleHistory(museum)">
+        <img
+          class="addtohistory"
+          [src]="'/assets/icon/validation.png'"
+          alt="historique"
+        />
+      </button>
       <button class="museum-image" (click)="toggleDetails(museum)">
         <img
           class="museum-image"
@@ -34,7 +38,7 @@
       </button>
       <h3 class="museum-name">{{ museum?.nom_offre }}</h3>
       <button class="favori" (click)="addFavorite(museum)">
-        {{ museum.favorite ? "❤" : "❤️" }}
+        <img class="heart" [src]="'/assets/icon/heart.png'" alt="Favorite" />
       </button>
 
       <div class="details" *ngIf="selectedMuseum === museum">
@@ -49,6 +53,13 @@
   </div>
   <div *ngFor="let museum of labelMuseums">
     <div class="museums-container">
+      <button class="history" (click)="toggleHistory(museum)">
+        <img
+          class="addtohistory"
+          [src]="'/assets/icon/validation.png'"
+          alt="historique"
+        />
+      </button>
       <button class="museum-image" (click)="toggleDetails(museum)">
         <img
           class="museum-image"
@@ -57,8 +68,8 @@
         />
       </button>
       <h3 class="museum-name">{{ museum?.nom_offre }}</h3>
-      <button class="favori" (click)="toggleFavorite(museum)">
-        {{ museum.favorite ? "❤" : "❤️" }}
+      <button class="favori" (click)="addFavorite(museum)">
+        <img class="heart" [src]="'/assets/icon/heart.png'" alt="Favorite" />
       </button>
 
       <div class="details" *ngIf="selectedMuseum === museum">
@@ -71,6 +82,7 @@
       </div>
     </div>
   </div>
+
   <div *ngFor="let museum of HandiLabelMuseums">
     <div class="museums-container">
       <button class="museum-image" (click)="toggleDetails(museum)">
@@ -82,7 +94,7 @@
       </button>
       <h3 class="museum-name">{{ museum?.nom_offre }}</h3>
       <button class="favori" (click)="toggleFavorite(museum)">
-        {{ museum.favorite ? "❤" : "❤️" }}
+        <img class="heart" [src]="'/assets/icon/heart.png'" alt="Favorite" />
       </button>
       <div class="details" *ngIf="selectedMuseum === museum">
         <span class="museum-city">{{ museum?.commune }}</span>

@@ -1,5 +1,11 @@
+.all {
+  margin-bottom: 3rem;
+}
 .museums-container {
   color: var(--black);
+  ul {
+    padding: 0.5rem;
+  }
 }
 .count {
   display: flex;
@@ -13,31 +19,45 @@
 .museum-card {
   display: flex;
   justify-content: space-evenly;
+  height: 12rem;
+  width: 20rem;
+  padding: 0.5rem;
 }
 
 .museum-image-container {
-  width: 48%;
-  margin: 0.5rem;
+  width: 10rem;
 }
 
 .museum-details {
-  width: 45%;
-  margin: 0.5rem;
+  width: 10rem;
+  height: 10rem;
   padding: 0.5rem;
   border-radius: 0.3rem;
-  button {
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  .addtohistory {
+    height: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    bottom: 4rem;
+    left: 8rem;
   }
 }
 .museum-name {
   color: var(--turquoise);
+  margin: 0;
+  font-size: 1rem;
 }
 .museum-image {
-  height: 100%;
-  width: 100%;
+  height: 10rem;
+  width: 10rem;
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
   object-fit: cover;
+  button {
+    margin-top: 2rem;
+  }
 }
 .transition-left {
   transform: translateX(-100%);
@@ -73,15 +93,17 @@
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
-.supprimer {
-  height: 1rem;
+button {
   background: transparent;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .museum-site a {
   color: var(--turquoise);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .museum-site a:hover {
@@ -90,7 +112,9 @@
 
 .title {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 0.3rem;
+  font-size: 1.2rem;
 }
 
 li {
@@ -111,7 +135,7 @@ li {
   }
 }
 @media (max-width: 768px) {
-  // .favButton {
-  //   display: none;
-  // }
+  .favButton {
+    display: none;
+  }
 }

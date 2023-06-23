@@ -4,8 +4,6 @@
 }
 .museums-container {
   width: 20rem;
-  margin: 1rem;
-  padding: 1rem;
   background-color: var(--white);
   border-radius: 0.5rem;
   border-color: transparent;
@@ -52,8 +50,13 @@
 
   .museum-site,
   a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    max-width: 20rem;
     font-family: var(--inter);
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.8rem;
     margin-top: 0.5rem;
     padding: 0.5rem;
@@ -64,14 +67,33 @@
   .museum-site:hover {
     text-decoration: underline;
   }
-  .selected {
-    background-color: red;
-  }
 }
-
+.heart {
+  height: 2rem;
+  margin: 0.3rem 0.3rem;
+}
+button.history {
+  position: relative;
+  top: 3rem;
+  left: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 3rem;
+  padding: 0.1rem;
+  margin: 0.3rem;
+  opacity: 0.8;
+  background-color: var(--turquoise);
+}
+.addtohistory {
+  height: 1.7rem;
+  cursor: pointer;
+  bottom: 4rem;
+  left: 8rem;
+}
 @media (max-width: 768px) {
   .museums-container {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

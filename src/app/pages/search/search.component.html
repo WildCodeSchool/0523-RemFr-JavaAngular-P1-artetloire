@@ -1,4 +1,19 @@
 <app-header></app-header>
+<div class="name-search">
+  <label for="theme"></label>
+  <input
+    type="text"
+    id="theme"
+    placeholder="Rechercher"
+    [(ngModel)]="museumName"
+  />
+  <button (click)="getMuseumByName()">
+    <img src="assets/recherche.png" alt="Loupe" />
+  </button>
+</div>
+<div class="result-card" [ngClass]="{ 'transition-right': animate }">
+  <app-result-card [filteredMuseums]="nameMuseums"></app-result-card>
+</div>
 <div>
   <div class="filter-container">
     <label for="theme"></label>
@@ -41,35 +56,53 @@
       </option>
     </select>
   </div>
+  <div class="selected" *ngIf="selectedTheme">
+    <p>
+      Thème sélectionné : <span class="color">{{ selectedTheme }}</span>
+    </p>
+  </div>
   <div class="Result">
-    <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
+    <div
+      class="result-card"
+      [ngClass]="{
+        'transition-bottom': animate,
+        'transition-right': themeMuseums.length > 5
+      }"
+    >
       <app-result-card [filteredMuseums]="themeMuseums"></app-result-card>
     </div>
-    <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
+    <div class="selected" *ngIf="selectedLabelHandi">
+      <p>
+        Accessibilité: <span class="color">{{ selectedLabelHandi }}</span>
+      </p>
+    </div>
+
+    <div
+      class="result-card"
+      [ngClass]="{
+        'transition-bottom': animate,
+        'transition-right': HandiLabelMuseums.length > 5
+      }"
+    >
       <app-result-card [filteredMuseums]="HandiLabelMuseums"></app-result-card>
     </div>
-    <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
+    <div class="selected" *ngIf="selectedLabel">
+      <p>
+        Label sélectionné : <span class="color">{{ selectedLabel }}</span>
+      </p>
+    </div>
+    <div
+      class="result-card"
+      [ngClass]="{
+        'transition-bottom': animate,
+        'transition-right': labelMuseums.length > 5
+      }"
+    >
       <app-result-card [labelMuseums]="labelMuseums"></app-result-card>
     </div>
   </div>
   <div class="button-see-more">
     <button (click)="seeMore()" *ngIf="showSeeMore">Voir plus</button>
-  </div>
-  <div class="name-search">
-    <h2 class="name-search-title">Recherche de musées par nom</h2>
-    <label for="theme"></label>
-    <input
-      type="text"
-      id="theme"
-      placeholder="Rechercher"
-      [(ngModel)]="museumName"
-    />
-    <button (click)="getMuseumByName()">
-      <img src="assets/recherche.png" alt="Loupe" />
-    </button>
-  </div>
-  <div class="result-card" [ngClass]="{ 'transition-bottom': animate }">
-    <app-result-card [filteredMuseums]="filteredMuseums"></app-result-card>
   </div>
 </div>
 <app-navigation></app-navigation>
