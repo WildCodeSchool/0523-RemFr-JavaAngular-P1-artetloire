@@ -25,6 +25,8 @@
             *ngFor="let card of addedCards"
             class="carte-model"
             [museumInfo]="card"
+            (openModalEvent)="openModal($event)"
+            (removeFavoriteEvent)="removeFavorite($event)"
           ></app-carousel-card>
         </div>
         <div class="right" *ngIf="addedCards.length >= 3">
