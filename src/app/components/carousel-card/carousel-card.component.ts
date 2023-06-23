@@ -9,8 +9,13 @@ export class CarouselCardComponent  {
   @Input() museumInfo: any;
 
   @Output() openModalEvent = new EventEmitter<any>();
+  @Output() removeFavoriteEvent = new EventEmitter<any>();
 
   openModal(): void {
     this.openModalEvent.emit(this.museumInfo);
+  }
+  
+  removeFavorite(): void {
+    this.removeFavoriteEvent.emit(this.museumInfo);
   }
 }
