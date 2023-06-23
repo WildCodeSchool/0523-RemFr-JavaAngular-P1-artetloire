@@ -25,15 +25,15 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.startAutoSlide();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     clearTimeout(this.Timeout);
   }
 
-  startAutoSlide() {
+  startAutoSlide(): void {
     this.Timeout = setTimeout(() => {
       this.Index = (this.Index + 1) % this.museumSample.length;
       this.slideToCurrentIndex();
@@ -41,18 +41,18 @@ export class CarouselComponent implements OnInit, OnDestroy {
     }, this.Interval);
   }
 
-  stopAutoSlide() {
+  stopAutoSlide(): void {
     clearTimeout(this.Timeout);
   }
 
-  goToSlide(index: number) {
+  goToSlide(index: number): void {
     this.stopAutoSlide();
     this.Index = index;
     this.slideToCurrentIndex();
     this.startAutoSlide();
   }
 
-  slideToCurrentIndex() {
+  slideToCurrentIndex(): void {
     const sliderElement: HTMLElement = document.querySelector('.slider') as HTMLElement;
     const slideWidth = sliderElement.offsetWidth;
     sliderElement.style.transform = `translateX(-${slideWidth * this.Index}px)`;
