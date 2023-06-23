@@ -5,6 +5,7 @@ import { HomePageComponent } from "./pages/home/home.component";
 import { searchComponent } from "./pages/search/search.component";
 import { MapComponent } from "./pages/map/map.component";
 import { SupportComponent } from "./pages/faq/support.component";
+import { HistoryComponent } from "./pages/history/history.component";
 
 const routes: Routes = [
 
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: "**",
     redirectTo: "home"
+  },
+  {
+    path: "history",
+    component: HistoryComponent,
   }
 ];
 

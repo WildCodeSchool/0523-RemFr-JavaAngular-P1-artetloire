@@ -27,6 +27,7 @@ export class Museums {
     public telephone: string,
     public label_tourisme_handicap: string,
     public favorite: boolean,
+    public visited: boolean,
     public isOpen: boolean
   ) {}
 }
